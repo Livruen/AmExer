@@ -92,6 +92,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AmExer" />
         </activity>
+        <activity
+            android:name=".ChooseCampusMaps"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
     </application>
 
 </manifest>

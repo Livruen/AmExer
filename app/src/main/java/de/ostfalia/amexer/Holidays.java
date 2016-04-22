@@ -51,7 +51,7 @@ public class Holidays extends AppCompatActivity {
      * Initialisiert und füllt die Liste
      */
     private void fillList() {
-        holidaysList = new ArrayList<>(new CSVReaderHolidays(iS).getHolidayNames());
+        holidaysList = new ArrayList<>(new CSVReaderHolidays(iS).getHolidays());
 
         holidayslistAdapter =
                 new ArrayAdapter<>(

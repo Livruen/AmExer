@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText_datacenter"
         android:background="@color/wolfenbuettelBlue"
-        android:text="data center"
+        android:text="Rechenzentrum"
         android:focusable="false"
         android:textColor="#ffffff"
         android:layout_row="0"

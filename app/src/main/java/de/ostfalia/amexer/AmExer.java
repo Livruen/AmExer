@@ -46,7 +46,7 @@ public class AmExer extends AppCompatActivity {
         maps_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AmExer.this, Maps.class));
+                startActivity(new Intent(AmExer.this, ChooseCampusMaps.class));
             }
         });
         sport_button.setOnClickListener(new View.OnClickListener() {

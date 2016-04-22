@@ -41,9 +41,9 @@ public class Holidays extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_holidays);
             actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i("Holidays", " action bar");
+            Log.i(this.getClass().toString(), " action bar");
         } else {
-            Log.i("Holidays", "no action bar");
+            Log.i(this.getClass().toString(), "no action bar");
         }
     }
 

@@ -39,9 +39,9 @@ public class FoodAmExer extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_food);
             actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i("FoodAmExer", " action bar");
+            Log.i(this.getClass().toString(), " action bar");
         } else {
-            Log.i("FoodAmExer", "no action bar");
+            Log.i(this.getClass().toString(), "no action bar");
         }
 
         // Initialize Objects in View

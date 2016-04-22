@@ -26,9 +26,9 @@ public class FoodAmMain extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_food);
             actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i("FoodAmMain", " action bar");
+            Log.i(this.getClass().toString(), " action bar");
         } else {
-            Log.i("FoodAmMain", "no action bar");
+            Log.i(this.getClass().toString(), "no action bar");
         }
 
         mensa_text = (EditText) this.findViewById(R.id.mensa_text);

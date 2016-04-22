@@ -8,12 +8,89 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".AmExer">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".ChooseCampus"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".DataCenter"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".Library"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".Sport"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".AfterSchool"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".Holidays"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".FoodAmExer"
+            android:parentActivityName=".ChooseCampus">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChooseCampus" />
+        </activity>
+        <activity
+            android:name=".FoodAmMain"
+            android:parentActivityName=".ChooseCampus">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".ChooseCampus" />
+        </activity>
+        <activity
+            android:name=".Office"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".Profs"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".Maps"
+            android:parentActivityName=".AmExer">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
         </activity>
     </application>
 

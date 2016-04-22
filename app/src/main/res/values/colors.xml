@@ -3,4 +3,9 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="backgroundOstfalia">#e4e4e4</color>
+    <color name="wolfenbuettelBlue">#009EE0</color>
+    <color name="ostfaliaBlue">#003A79</color>
+    <color name="ostfaliaGreen">#7ab59d</color>
+    <color name="ostfaliaRed">#e2001a</color>
 </resources>

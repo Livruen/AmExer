@@ -4,7 +4,7 @@
 
     <string name="gebaeude1str">Hochschulsport</string>
     <string name="gebaeude2str">Fakultät Informatik, Gleichstellungsbüro, Entrepreneurshipcenter, Sprachzentrum, Zentrum für Außerfachliche Qualifikationen (ZAQ)</string>
-    <string name="gebaeude3str">Kinderbetreuung 'Grashüpfer', IVE</string>
+    <string name="gebaeude3str">Kinderbetreuung Grashüpfer, IVE</string>
     <string name="gebaeude4str">Fakultät Versorgungstechnik</string>
     <string name="gebaeude5str">Sporthalle</string>
     <string name="gebaeude6str">Fakultät Soziale Arbeit</string>
@@ -14,6 +14,6 @@
     <string name="gebaeude10str">Zentrum für erfolgreiches Lehren und Lernen (ZeLL)</string>
     <string name="gebaeude11str">Hörsaalzentrum</string>
     <string name="gebaeude12str">Studentenwohnheim</string>
-    <string name="gebaeude23str">BAföG-Amt, Kindergarten 'Zwergenbutze'</string>
+    <string name="gebaeude23str">BAföG-Amt, Kindergarten Zwergenbutze</string>
     <string name="gebaeude45str">Studierenden Servicebüro, Zentrale Studienberatung, Studienfinanzierungsberatung</string>
 </resources>

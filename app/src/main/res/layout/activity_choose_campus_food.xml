@@ -42,14 +42,12 @@
         android:width="200dp"
         android:textStyle="normal"
         android:textColor="#ffffff"
-        android:layout_marginBottom="175dp"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/campusExer"
-        android:layout_alignStart="@+id/campusExer"
+        android:layout_marginBottom="138dp"
         android:elevation="10dp"
         android:height="60dp"
-        android:layout_alignRight="@+id/campusExer"
-        android:layout_alignEnd="@+id/campusExer" />
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/campusExer"
+        android:layout_alignStart="@+id/campusExer" />
 
     <EditText
         android:layout_width="match_parent"

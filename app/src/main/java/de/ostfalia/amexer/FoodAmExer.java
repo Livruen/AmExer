@@ -15,10 +15,10 @@ public class FoodAmExer extends AppCompatActivity {
 
     /*Constants*/
     final int SOLFERINO_OPEN_HOUR = 8;
-    final int SOLFERINO_CLOSE_HOUR = 16;
+    final int SOLFERINO_CLOSE_HOUR = 14;
 
     final int LIMES_OPEN_HOUR = 7;
-    final int LIMES_CLOSE_HOUR = 14;
+    final int LIMES_CLOSE_HOUR = 12;
 
 
     private EditText solferino_text;
@@ -55,14 +55,13 @@ public class FoodAmExer extends AppCompatActivity {
         //Get Time
         Calendar c = Calendar.getInstance();
 
-        int currentHour = c.get(Calendar.HOUR);
-        int currentMinute = c.get(Calendar.MINUTE);
         int AM_PM = c.get(Calendar.AM_PM);
+        int currentHour = c.get(Calendar.HOUR) + AM_PM;
+        int currentMinute = c.get(Calendar.MINUTE);
 
-        System.out.println("Stunde: " + currentHour);
-        System.out.println("Minute: " + currentMinute);
 
-        if((currentHour >= SOLFERINO_OPEN_HOUR && currentHour <= SOLFERINO_CLOSE_HOUR)){
+
+        if(currentHour >= SOLFERINO_OPEN_HOUR  && currentHour <= SOLFERINO_CLOSE_HOUR){
             solferino_text.setText("OFFEN", TextView.BufferType.EDITABLE);
             solferino_text.setTextColor(Color.GREEN);
         } else {
@@ -71,8 +70,8 @@ public class FoodAmExer extends AppCompatActivity {
         }
 
         if(currentHour >= LIMES_OPEN_HOUR && currentHour <= LIMES_CLOSE_HOUR){
-             limes_text.setText("OPEN", TextView.BufferType.EDITABLE);
-             limes_text.setTextColor(Color.GREEN);
+            limes_text.setText("OPEN", TextView.BufferType.EDITABLE);
+            limes_text.setTextColor(Color.GREEN);
         } else {
             limes_text.setText("GESCHLOSSEN", TextView.BufferType.EDITABLE);
             limes_text.setTextColor(Color.RED);

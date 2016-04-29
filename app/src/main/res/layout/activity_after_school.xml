@@ -8,7 +8,8 @@
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context="com.example.livruen.amexer.AfterSchool"
-    android:background="#ffffff">
+    android:background="#ffffff"
+    android:gravity="center_vertical|center_horizontal">
 
     <EditText
         android:layout_width="match_parent"
@@ -27,59 +28,68 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Kneipen"
-        android:id="@+id/buttonPubs"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/round_shape"
-        android:textColor="#ffffff"
-        android:textStyle="normal"
-        android:width="200dp"
-        android:elevation="10dp"
-        android:elegantTextHeight="true"
-        android:clickable="true"
-        android:focusableInTouchMode="true"
-        android:height="60dp"
-        android:layout_below="@+id/editText_afterschool"
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="102dp" />
+        android:layout_below="@+id/editText_afterschool"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical|center_horizontal">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="clubs"
-        android:id="@+id/buttonClubs"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/round_shape"
-        android:textColor="#ffffff"
-        android:textStyle="normal"
-        android:width="200dp"
-        android:elevation="10dp"
-        android:elegantTextHeight="true"
-        android:clickable="true"
-        android:focusableInTouchMode="true"
-        android:height="60dp"
-        android:layout_centerVertical="true"
-        android:layout_alignStart="@+id/buttonRestaurant" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Restaurants"
+            android:id="@+id/buttonRestaurant"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_below="@+id/buttonClubs"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="restaurants"
-        android:id="@+id/buttonRestaurant"
-        android:layout_gravity="center_horizontal"
-        android:background="@drawable/round_shape"
-        android:textColor="#ffffff"
-        android:textStyle="normal"
-        android:width="200dp"
-        android:elevation="10dp"
-        android:elegantTextHeight="true"
-        android:clickable="true"
-        android:focusableInTouchMode="true"
-        android:height="60dp"
-        android:layout_marginTop="45dp"
-        android:layout_below="@+id/buttonClubs"
-        android:layout_centerHorizontal="true" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Clubs"
+            android:id="@+id/buttonClubs"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_below="@+id/buttonPubs"
+            android:layout_alignLeft="@+id/buttonPubs"
+            android:layout_alignStart="@+id/buttonPubs" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Kneipen"
+            android:id="@+id/buttonPubs"
+            android:layout_gravity="center_horizontal"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp" />
+    </RelativeLayout>
 </RelativeLayout>

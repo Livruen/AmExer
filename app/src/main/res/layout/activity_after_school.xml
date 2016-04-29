@@ -89,7 +89,6 @@
             android:clickable="true"
             android:focusableInTouchMode="true"
             android:height="60dp"
-            android:layout_below="@+id/editText_afterschool"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp" />
     </RelativeLayout>

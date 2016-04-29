@@ -1,28 +1,28 @@
 package de.ostfalia.amexer;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 
 /**
  * Created by Lina on 22.04.2016.
  */
 public class ChooseCampusMaps extends AppCompatActivity {
-
-    private Button campusMain;
     private Button campusAmExer;
+    private Button campusSalzdahlumer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_campus_maps);
 
-        campusMain = (Button) findViewById(R.id.clubs);
-        campusAmExer = (Button) findViewById(R.id.pubs);
-
-        //setAction();
+        campusAmExer = (Button) findViewById(R.id.campusExer);
+        campusSalzdahlumer = (Button) findViewById(R.id.campusSalzdahlumer);
+        setAction();
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();
@@ -36,20 +36,20 @@ public class ChooseCampusMaps extends AppCompatActivity {
         }
     }
 
-    /*private void setAction(){
+    private void setAction(){
 
         campusAmExer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChooseCampus.this, FoodAmExer.class));
+                startActivity(new Intent(ChooseCampusMaps.this, MapExer.class));
             }
         });
 
-        campusMain.setOnClickListener(new View.OnClickListener(){
+        campusSalzdahlumer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(ChooseCampus.this, FoodAmMain.class));
+                startActivity(new Intent(ChooseCampusMaps.this, MapSalzdahlumer.class));
             }
         });
-    }*/
+    }
 }

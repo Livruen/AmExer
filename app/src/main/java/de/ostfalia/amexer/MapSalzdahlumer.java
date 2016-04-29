@@ -1,16 +1,16 @@
 package de.ostfalia.amexer;
 
+import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 
-public class Maps extends AppCompatActivity {
+public class MapSalzdahlumer extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_maps);
+        setContentView(R.layout.activity_maps_salzdahlumer);
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();

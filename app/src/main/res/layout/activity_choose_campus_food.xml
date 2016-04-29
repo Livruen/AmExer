@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Campus am Exer"
-        android:id="@+id/pubs"
+        android:id="@+id/campusExer"
         android:layout_gravity="center_horizontal"
         android:background="@drawable/round_shape"
         android:textColor="#ffffff"
@@ -24,7 +24,7 @@
         android:elegantTextHeight="true"
         android:clickable="true"
         android:layout_marginBottom="68dp"
-        android:layout_above="@+id/clubs"
+        android:layout_above="@+id/campusSalzdahlumer"
         android:layout_centerHorizontal="true"
         android:focusableInTouchMode="true"
 
@@ -35,7 +35,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Campus Salzdahlumerstr."
-        android:id="@+id/clubs"
+        android:id="@+id/campusSalzdahlumer"
         android:layout_gravity="center_horizontal"
         android:clickable="true"
         android:background="@drawable/round_shape"
@@ -44,12 +44,12 @@
         android:textColor="#ffffff"
         android:layout_marginBottom="175dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/pubs"
-        android:layout_alignStart="@+id/pubs"
+        android:layout_alignLeft="@+id/campusExer"
+        android:layout_alignStart="@+id/campusExer"
         android:elevation="10dp"
         android:height="60dp"
-        android:layout_alignRight="@+id/pubs"
-        android:layout_alignEnd="@+id/pubs" />
+        android:layout_alignRight="@+id/campusExer"
+        android:layout_alignEnd="@+id/campusExer" />
 
     <EditText
         android:layout_width="match_parent"

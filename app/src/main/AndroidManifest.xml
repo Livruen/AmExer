@@ -86,8 +86,15 @@
                 android:value=".AmExer" />
         </activity>
         <activity
-            android:name=".Maps"
-            android:parentActivityName=".AmExer">
+            android:name=".MapExer"
+            android:parentActivityName=".ChooseCampusMaps">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".AmExer" />
+        </activity>
+        <activity
+            android:name=".MapSalzdahlumer"
+            android:parentActivityName=".ChooseCampusMaps">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".AmExer" />

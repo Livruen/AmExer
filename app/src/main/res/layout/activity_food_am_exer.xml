@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText_campuses"
         android:background="@color/wolfenbuettelBlue"
-        android:text="Campus am Exer"
+        android:text="@string/campusExer"
         android:focusable="false"
         android:textColor="#ffffff"
         android:layout_row="0"

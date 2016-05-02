@@ -14,7 +14,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText_offices"
         android:background="@color/wolfenbuettelBlue"
-        android:text="Büros und Ämter"
+        android:text="@string/offices"
         android:focusable="false"
         android:textColor="#ffffff"
         android:layout_row="0"

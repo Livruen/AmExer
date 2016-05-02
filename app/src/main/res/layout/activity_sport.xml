@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText"
         android:background="@color/wolfenbuettelBlue"
-        android:text="Sportkurse"
+        android:text="@string/sports"
         android:focusable="false"
         android:textColor="#ffffff"
         android:layout_row="0"

@@ -28,7 +28,7 @@ public class Sport extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Gets the csv
         try {
-            inputStream = this.getAssets().open("sports.csv");
+            inputStream = this.getAssets().open("sports_data.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }

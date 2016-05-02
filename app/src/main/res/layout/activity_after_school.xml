@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText_afterschool"
         android:background="@color/wolfenbuettelBlue"
-        android:text="Freizeit"
+        android:text="@string/afterSchool"
         android:focusable="false"
         android:textColor="#ffffff"
         android:layout_row="0"
@@ -39,7 +39,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Restaurants"
+            android:text="@string/restaurants"
             android:id="@+id/buttonRestaurant"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"
@@ -58,7 +58,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Clubs"
+            android:text="@string/clubs"
             android:id="@+id/buttonClubs"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"
@@ -71,13 +71,13 @@
             android:focusableInTouchMode="true"
             android:height="60dp"
             android:layout_below="@+id/buttonPubs"
-            android:layout_alignLeft="@+id/buttonPubs"
-            android:layout_alignStart="@+id/buttonPubs" />
+            android:layout_alignLeft="@+id/buttonRestaurant"
+            android:layout_alignStart="@+id/buttonRestaurant" />
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Kneipen"
+            android:text="@string/bars"
             android:id="@+id/buttonPubs"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"

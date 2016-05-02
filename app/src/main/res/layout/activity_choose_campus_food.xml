@@ -31,12 +31,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal">
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/editText2">
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Campus Salzdahlumer"
+            android:text="@string/campusSalzdahlumer"
             android:id="@+id/campusSalzdahlumer"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
@@ -47,16 +48,13 @@
             android:elevation="10dp"
             android:height="60dp"
             android:layout_alignParentBottom="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="10dp"
             android:layout_alignLeft="@+id/campusExer"
             android:layout_alignStart="@+id/campusExer" />
 
         <Button
-            android:layout_width="fill_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Campus am Exer"
+            android:text="@string/campusExer"
             android:id="@+id/campusExer"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"

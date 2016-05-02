@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText3"
         android:background="@color/wolfenbuettelBlue"
-        android:text="Karten"
+        android:text="@string/maps"
         android:focusable="false"
         android:textColor="#ffffff"
         android:layout_row="0"
@@ -30,12 +30,13 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal">
+        android:gravity="center_vertical|center_horizontal"
+        android:layout_below="@+id/editText3">
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Campus am Exer"
+            android:text="@string/campusExer"
             android:id="@+id/campusExer"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"
@@ -45,21 +46,17 @@
             android:elevation="20dp"
             android:elegantTextHeight="true"
             android:clickable="true"
-            android:layout_marginBottom="68dp"
             android:layout_above="@+id/campusSalzdahlumer"
             android:layout_centerHorizontal="true"
             android:focusableInTouchMode="true"
 
             android:height="60dp"
-            android:layout_margin="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginRight="30dp" />
+            android:layout_margin="10dp" />
 
         <Button
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Campus Salzdahlumer"
+            android:text="@string/campusSalzdahlumer"
             android:id="@+id/campusSalzdahlumer"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
@@ -67,12 +64,9 @@
             android:width="200dp"
             android:textStyle="normal"
             android:textColor="#ffffff"
-            android:layout_marginBottom="10dp"
             android:layout_alignParentBottom="true"
             android:elevation="10dp"
             android:height="60dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
             android:layout_alignLeft="@+id/campusExer"
             android:layout_alignStart="@+id/campusExer" />
     </RelativeLayout>

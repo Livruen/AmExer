@@ -36,7 +36,7 @@ public class Library extends AppCompatActivity {
 
         // Reads CSV
         try {
-            iS = this.getAssets().open("semester_daten.csv");
+            iS = this.getAssets().open("semester_data.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }

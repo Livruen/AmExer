@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/editText_campuses"
         android:background="@color/wolfenbuettelBlue"
-        android:text="Campus Salzdahlumerstraße"
+        android:text="@string/campusSalzdahlumer"
         android:focusable="false"
         android:textColor="#ffffff"
         android:layout_row="0"

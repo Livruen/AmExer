@@ -62,18 +62,18 @@ public class FoodAmExer extends AppCompatActivity {
 
 
         if(currentHour >= SOLFERINO_OPEN_HOUR  && currentHour <= SOLFERINO_CLOSE_HOUR){
-            solferino_text.setText("OFFEN", TextView.BufferType.EDITABLE);
+            solferino_text.setText(R.string.open, TextView.BufferType.EDITABLE);
             solferino_text.setTextColor(Color.GREEN);
         } else {
-            solferino_text.setText("GESCHLOSSEN", TextView.BufferType.EDITABLE);
+            solferino_text.setText(R.string.closed, TextView.BufferType.EDITABLE);
             solferino_text.setTextColor(Color.RED);
         }
 
         if(currentHour >= LIMES_OPEN_HOUR && currentHour <= LIMES_CLOSE_HOUR){
-            limes_text.setText("OPEN", TextView.BufferType.EDITABLE);
+            limes_text.setText(R.string.open, TextView.BufferType.EDITABLE);
             limes_text.setTextColor(Color.GREEN);
         } else {
-            limes_text.setText("GESCHLOSSEN", TextView.BufferType.EDITABLE);
+            limes_text.setText(R.string.closed, TextView.BufferType.EDITABLE);
             limes_text.setTextColor(Color.RED);
         }
     }

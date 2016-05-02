@@ -35,23 +35,21 @@ public class ChooseCampus extends AppCompatActivity {
         }
     }
 
+    /**
+     * By clicking: opens the map for the choosen campus
+     */
     private void setAction(){
-
         campusAmExer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(ChooseCampus.this, FoodAmExer.class));
-
             }
         });
 
         campusMain.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-
                 startActivity(new Intent(ChooseCampus.this, FoodAmMain.class));
-
             }
         });
     }

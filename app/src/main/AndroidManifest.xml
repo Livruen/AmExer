@@ -100,21 +100,7 @@
                 android:value=".ChooseCampusMaps" />
         </activity>
         <activity
-            android:name=".MapListExer"
-            android:parentActivityName=".ChooseCampusMaps">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ChooseCampusMaps" />
-        </activity>
-        <activity
             android:name=".MapSalzdahlumer"
-            android:parentActivityName=".ChooseCampusMaps">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".ChooseCampusMaps" />
-        </activity>
-        <activity
-            android:name=".MapListSalzdahlumer"
             android:parentActivityName=".ChooseCampusMaps">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

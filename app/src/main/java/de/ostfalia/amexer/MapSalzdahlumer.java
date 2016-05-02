@@ -1,23 +1,43 @@
 package de.ostfalia.amexer;
 
-import android.content.Intent;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.RelativeLayout;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+import android.widget.ListView;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import de.ostfalia.amexer.entries.CSVReader;
 
 public class MapSalzdahlumer extends AppCompatActivity {
-
-    private RelativeLayout bg;
+    private ImageView imageViewMapSalzdahlumer;
+    private InputStream inputStream;
+    private List<String> salzdahlumerList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+        // Gets the csv
+        try {
+            inputStream = this.getAssets().open("campus_salzdahlumer_data.csv");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
+        super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps_salzdahlumer);
 
-        bg = (RelativeLayout) findViewById(R.id.bg_map_salzdahlumer);
+        salzdahlumerList = new ArrayList<>(new CSVReader(inputStream).getData());
+        imageViewMapSalzdahlumer = (ImageView) findViewById(R.id.imageViewMapSalzdahlumer);
 
         setActions();
 
@@ -34,17 +54,36 @@ public class MapSalzdahlumer extends AppCompatActivity {
     }
 
     private void setActions() {
-        //Switch between listview and map
-        bg.setOnTouchListener(new Gestures(this) {
-            public boolean onSwipeRight() {
-                startActivity(new Intent(MapSalzdahlumer.this, MapListSalzdahlumer.class));
-                return true;
-            }
-
-            public boolean onSwipeLeft() {
-                startActivity(new Intent(MapSalzdahlumer.this, MapListSalzdahlumer.class));
-                return true;
+        imageViewMapSalzdahlumer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showList();
             }
         });
+    }
+
+    private void showList() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setIcon(R.mipmap.ic_maps);
+        builder.setTitle(R.string.gebaudeSalzdahlumer);
+
+        builder.setNegativeButton(
+                R.string.close,
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                });
+
+        ListView modeList = new ListView(this);
+        String[] stringArray = salzdahlumerList.toArray(new String[0]);
+        ArrayAdapter<String> modeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, stringArray);
+        modeList.setAdapter(modeAdapter);
+
+        builder.setView(modeList);
+        final Dialog dialog = builder.create();
+
+        dialog.show();
     }
 }

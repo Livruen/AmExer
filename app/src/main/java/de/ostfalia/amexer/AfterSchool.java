@@ -42,11 +42,13 @@ public class AfterSchool extends AppCompatActivity {
         }
     }
 
+    /**
+     * Opens Google Maps-App or Google Map in Browser with Search-String
+     */
     private void setActions() {
         btnPubs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Uri uri = Uri.parse("geo:37.7749,-122.4192?q=\" + Uri.encode(\"1st & Pike, Seattle\");
                 Uri uri = Uri.parse(barsLink);
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
@@ -70,6 +72,5 @@ public class AfterSchool extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }

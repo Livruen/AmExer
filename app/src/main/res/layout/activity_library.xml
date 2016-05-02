@@ -10,33 +10,9 @@
     tools:context=".Library"
     android:background="@color/backgroundOstfalia">
 
-    <EditText
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:background="@color/wolfenbuettelBlue"
-        android:text="bibliothek"
-        android:focusable="false"
-        android:textColor="#ffffff"
-        android:layout_row="0"
-        android:layout_column="0"
-        android:inputType="none"
-        android:layout_columnSpan="2"
-        android:gravity="center"
-        android:layout_gravity="left|top"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true" />
-
-    <Space
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true" />
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/editText2"
         android:layout_alignParentLeft="true"
         android:background="@color/backgroundOstfalia"
         android:id="@+id/frameLayout"
@@ -295,5 +271,21 @@
             android:textIsSelectable="false" />
 
     </FrameLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText7"
+        android:background="@color/wolfenbuettelBlue"
+        android:text="@string/campusExer"
+        android:focusable="false"
+        android:textColor="#ffffff"
+        android:layout_row="0"
+        android:layout_column="0"
+        android:inputType="none"
+        android:layout_columnSpan="2"
+        android:gravity="center"
+        android:layout_gravity="left|top"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

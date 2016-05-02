@@ -24,7 +24,7 @@ public class Holidays extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Gets the CSV
         try {
-            inputStream = this.getAssets().open("holidays.csv");
+            inputStream = this.getAssets().open("holidays_data.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }

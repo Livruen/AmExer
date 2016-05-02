@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">AmExer</string>
+    <string name="app_name">Am Exer</string>
+
+    <string name="gebaudeExer">Gebäude am Exer:</string>
+    <string name="gebaudeSalzdahlumer">Gebäude an der Salzdahlumer:</string>
+
+    <string name="open">Offen</string>
+    <string name="closed">Geschlossen</string>
+
+    <string name="close">Schließen</string>
+
+    <string name="afterSchool">Freizeit</string>
+    <string name="amExer">Am Exer</string>
+    <string name="anDerSalzdahlumer">An der Salzdahlumer</string>
+    <string name="campusExer">Campus am Exer</string>
+    <string name="campusSalzdahlumer">Campus Salzdahlumer</string>
+    <string name="dataCenter">Rechenzentrum</string>
+    <string name="holidays">Vorlesungsfreie Zeiten</string>
+    <string name="library">Bibliothek</string>
+    <string name="maps">Karten</string>
+    <string name="offices">Ämter und Büros</string>
+    <string name="profs">Professoren</string>
+    <string name="sports">Sportkurse</string>
+
+    <string name="bars">Kneipen</string>
+    <string name="clubs">Clubs</string>
+    <string name="restaurants">Restaurants</string>
 </resources>

@@ -6,24 +6,24 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 /**
- * Created by Lina on 14.04.2016.
+ * Created by Lina on 02.05.2016.
  */
-public class CSVReaderHolidays {
-    private ArrayList<String> holidays = new ArrayList<>();
+public class CSVReader {
+    private ArrayList<String> data = new ArrayList<>();
 
-    public CSVReaderHolidays(InputStream iS) {
+    public CSVReader(InputStream iS) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(iS));
             String line = reader.readLine();
             while ((line = reader.readLine()) != null) {
-                holidays.add(line);
+                data.add(line);
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public ArrayList<String> getHolidays(){
-        return holidays;
+    public ArrayList<String> getData(){
+        return data;
     }
 }

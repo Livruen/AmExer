@@ -11,7 +11,6 @@ import java.util.GregorianCalendar;
  * Created by livruen on 27.04.16.
  */
 public class SemesterDateReader {
-
     private ArrayList<Calendar> semesterDates = new ArrayList<Calendar>();
 
     public SemesterDateReader(InputStream iS) {

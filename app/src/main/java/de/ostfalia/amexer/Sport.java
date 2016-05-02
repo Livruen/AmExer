@@ -16,19 +16,19 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.ostfalia.amexer.entries.CSVReaderSport;
+import de.ostfalia.amexer.entries.CSVReader;
 
 public class Sport extends AppCompatActivity {
     private ListView sportsListView;
     private ArrayAdapter<String> sportslistAdapter;
     private List<String> sportsList;
-    private InputStream iS;
+    private InputStream inputStream;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        // Holt sich die csv-Datei
+        // Gets the csv
         try {
-            iS = this.getAssets().open("sports.csv");
+            inputStream = this.getAssets().open("sports.csv");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -53,23 +53,26 @@ public class Sport extends AppCompatActivity {
     }
 
     /**
-     * Initialisiert und füllt die Liste
+     * Fills the list with data
      */
     private void fillList() {
-        sportsList = new ArrayList<>(new CSVReaderSport(iS).getCourseNames());
+        sportsList = new ArrayList<>(new CSVReader(inputStream).getData());
 
         sportslistAdapter =
                 new ArrayAdapter<>(
-                        this,                           // Die aktuelle Umgebung (diese Activity)
-                        R.layout.list_item_sportslist,  // ID der XML-Layout Datei
-                        R.id.item_list_textview,        // ID des TextViews
-                        sportsList);                    // Daten in einer ArrayList
+                        this,                           // This Activity)
+                        R.layout.list_item_sportslist,  // ID from XML-Layout-Data
+                        R.id.item_list_textview,        // ID from TextViews
+                        sportsList);                    // Daten from ArrayList
 
         ListView sportslistListView = (ListView) this.findViewById(R.id.sportListView);
         sportslistListView.setAdapter(sportslistAdapter);
         sportslistAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * Creates the Link by clicking on list-item(Sport-course)
+     */
     private void setActions() {
         sportsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override

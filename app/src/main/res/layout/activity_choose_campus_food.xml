@@ -14,7 +14,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/editText2"
+        android:id="@+id/editText_choose_campus_food"
         android:background="@color/wolfenbuettelBlue"
         android:text="Essen"
         android:focusable="false"
@@ -32,7 +32,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_vertical|center_horizontal"
-        android:layout_below="@+id/editText2">
+        android:layout_below="@+id/editText_choose_campus_food">
 
         <Button
             android:layout_width="wrap_content"

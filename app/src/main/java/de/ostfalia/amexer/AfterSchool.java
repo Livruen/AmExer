@@ -35,7 +35,8 @@ public class AfterSchool extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_after_school);
-            actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
+            // Removes the text in Action bar
+            actionBar.setDisplayShowTitleEnabled(false);
             Log.i(this.getClass().toString(), " action bar");
         } else {
             Log.i(this.getClass().toString(), "no action bar");

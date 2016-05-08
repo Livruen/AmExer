@@ -72,7 +72,7 @@
                 android:value=".ChooseCampus" />
         </activity>
         <activity
-            android:name=".Office"
+            android:name=".Offices"
             android:parentActivityName=".AmExer">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

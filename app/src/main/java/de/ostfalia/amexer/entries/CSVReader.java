@@ -14,7 +14,7 @@ public class CSVReader {
     public CSVReader(InputStream iS) {
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(iS));
-            String line = reader.readLine();
+            String line;
             while ((line = reader.readLine()) != null) {
                 data.add(line);
             }

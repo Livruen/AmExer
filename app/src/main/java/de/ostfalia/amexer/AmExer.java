@@ -80,7 +80,7 @@ public class AmExer extends AppCompatActivity {
         office_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(AmExer.this, Office.class));
+                startActivity(new Intent(AmExer.this, Offices.class));
             }
         });
 

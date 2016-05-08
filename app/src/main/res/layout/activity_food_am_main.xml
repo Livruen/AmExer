@@ -7,7 +7,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="com.example.livruen.amexer.FoodAmMain">
+    tools:context=".FoodAmMain">
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">Am Exer</string>
-
+    <string name="app_name">AmExer</string>
     <string name="gebaudeExer">Gebäude am Exer:</string>
     <string name="gebaudeSalzdahlumer">Gebäude an der Salzdahlumer:</string>
 

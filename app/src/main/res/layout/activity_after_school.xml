@@ -7,7 +7,7 @@
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
-    tools:context="com.example.livruen.amexer.AfterSchool"
+    tools:context=".AfterSchool"
     android:background="#ffffff"
     android:gravity="center_vertical|center_horizontal">
 
@@ -65,7 +65,7 @@
             android:elevation="10dp"
             android:elegantTextHeight="true"
             android:clickable="true"
-            android:focusableInTouchMode="true"
+            android:focusableInTouchMode="false"
             android:height="60dp"
             android:layout_below="@+id/buttonPubs"
             android:layout_alignLeft="@+id/buttonRestaurant"
@@ -84,7 +84,7 @@
             android:elevation="10dp"
             android:elegantTextHeight="true"
             android:clickable="true"
-            android:focusableInTouchMode="true"
+            android:focusableInTouchMode="false"
             android:height="60dp"
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp" />

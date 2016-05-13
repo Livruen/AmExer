@@ -46,7 +46,6 @@
             android:layout_above="@+id/campusSalzdahlumer"
             android:layout_centerHorizontal="true"
             android:focusableInTouchMode="true"
-
             android:height="60dp"
             android:layout_margin="10dp" />
 
@@ -70,3 +69,12 @@
 
 
 </RelativeLayout>
+
+
+
+
+
+
+
+
+

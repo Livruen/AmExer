@@ -1,6 +1,7 @@
 package de.ostfalia.amexer;
 
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -20,7 +21,13 @@ public class AmExer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_am_exer);
+
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            setContentView(R.layout.activity_am_exer_landscape);
+        } else {
+            setContentView(R.layout.activity_am_exer_portrait);
+        }
+
 
         food_button = (ImageButton) findViewById(R.id.food_button);
         maps_button = (ImageButton) findViewById(R.id.maps_button);

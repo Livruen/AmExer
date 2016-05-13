@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="0dp"
+    android:paddingLeft="0dp"
+    android:paddingRight="0dp"
+    android:paddingTop="0dp"
+    tools:context="com.example.livruen.amexer.AmExer"
+    android:background="#ffffff"
+    android:gravity="fill_horizontal|fill_vertical">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="170dp"
+        android:layout_marginRight="170dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.33"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/food_button"
+                android:cropToPadding="false"
+                android:nestedScrollingEnabled="true"
+                android:background="@mipmap/ic_food"
+                android:clickable="true"
+                android:layout_rowWeight="0.30"
+                android:layout_columnWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/food" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/maps_button"
+                android:background="@mipmap/ic_maps"
+                android:clickable="true"
+                android:layout_rowWeight="0.30"
+                android:layout_columnWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/maps" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/sport_button"
+                android:background="@mipmap/ic_sport"
+                android:clickable="true"
+                android:layout_columnWeight="0.30"
+                android:layout_rowWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/sports" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/library_button"
+                android:background="@mipmap/ic_library"
+                android:clickable="true"
+                android:layout_columnWeight="0.30"
+                android:layout_rowWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/library" />
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/holidays_button"
+                android:background="@mipmap/ic_holidays"
+                android:clickable="true"
+                android:layout_rowWeight="0.30"
+                android:layout_columnWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/holidays"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/profs_button"
+                android:background="@mipmap/ic_profs"
+                android:clickable="true"
+                android:layout_rowWeight="0.30"
+                android:layout_columnWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/profs"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.33"
+            android:gravity="center_vertical">
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/office_button"
+                android:background="@mipmap/ic_offices"
+                android:clickable="true"
+                android:layout_columnWeight="0.30"
+                android:layout_rowWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/offices"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/data_center_button"
+                android:background="@mipmap/ic_data_center"
+                android:clickable="true"
+                android:layout_rowWeight="0.30"
+                android:layout_columnWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/dataCenter"/>
+
+            <ImageButton
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/after_school_button"
+                android:padding="0dp"
+                android:background="@mipmap/ic_after_school"
+                android:clickable="true"
+                android:layout_rowWeight="0.30"
+                android:layout_columnWeight="0.30"
+                android:layout_weight="0.33"
+                android:adjustViewBounds="true"
+                android:contentDescription="@string/afterSchool"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

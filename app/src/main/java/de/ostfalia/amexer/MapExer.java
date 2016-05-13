@@ -3,6 +3,7 @@ package de.ostfalia.amexer;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -40,6 +41,7 @@ public class MapExer extends AppCompatActivity {
         imageViewMapExer = (ImageView) findViewById(R.id.imageViewMapExer);
 
         setActions();
+        setImage();
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();
@@ -50,6 +52,17 @@ public class MapExer extends AppCompatActivity {
             Log.i(this.getClass().toString(), " action bar");
         } else {
             Log.i(this.getClass().toString(), "no action bar");
+        }
+    }
+
+    /**
+     * Sets the Map-Image in landscape or portrait-orientation
+     */
+    private void setImage() {
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            imageViewMapExer.setImageResource(R.drawable.map_exer_quer);
+        } else {
+            imageViewMapExer.setImageResource(R.drawable.map_exer);
         }
     }
 

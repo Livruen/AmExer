@@ -73,8 +73,7 @@ public class Library extends AppCompatActivity {
         //Get current Time and date
         Calendar c = Calendar.getInstance();
 
-        int AM_PM = c.get(Calendar.AM_PM);
-        int currentHour = c.get(Calendar.HOUR) + AM_PM;
+        int currentHour = c.get(Calendar.HOUR_OF_DAY);
         int currentMinute = c.get(Calendar.MINUTE);
 
         int year = c.get(Calendar.YEAR);
@@ -99,6 +98,13 @@ public class Library extends AppCompatActivity {
      */
     private boolean setAvailibility(int year, int month, int day, int dayType, int currentHour, int currentMinute) {
 
+        if(dayType == Calendar.SATURDAY || dayType == Calendar.SUNDAY){
+
+                library_text.setText("GESCHLOSSEN");
+                library_text.setTextColor(Color.RED);
+                return true;
+
+        }
         TextView dayRow;
         String rowTime = "";
 
@@ -125,14 +131,6 @@ public class Library extends AppCompatActivity {
                     dayRow = (TextView) findViewById(R.id.Fr_Se);
                     rowTime = dayRow.getText().toString();
                     break;
-                case Calendar.SATURDAY:
-                    library_text.setText("GESCHLOSSEN");
-                    library_text.setTextColor(Color.RED);
-                    return true;
-                case Calendar.SUNDAY:
-                    library_text.setText("GESCHLOSSEN");
-                    library_text.setTextColor(Color.RED);
-                    return true;
             }
 
         } else { // Semester-free-time
@@ -158,14 +156,7 @@ public class Library extends AppCompatActivity {
                     dayRow = (TextView) findViewById(R.id.Fr_Vf);
                     rowTime = dayRow.getText().toString();
                     break;
-                case Calendar.SATURDAY:
-                    library_text.setText("GESCHLOSSEN");
-                    library_text.setTextColor(Color.RED);
-                    return true;
-                case Calendar.SUNDAY:
-                    library_text.setText("GESCHLOSSEN");
-                    library_text.setTextColor(Color.RED);
-                    return true;
+
             }
 
         }
@@ -178,10 +169,10 @@ public class Library extends AppCompatActivity {
         int tempCloseMinute = Integer.parseInt(openHours.get(3));
 
         if (isOpen(tempOpenHour, tempOpenMinute, tempCloseHour, tempCloseMinute, currentHour, currentMinute)) {
-            library_text.setText("OFFEN");
+            library_text.setText("Offen");
             library_text.setTextColor(Color.GREEN);
         } else {
-            library_text.setText("GESCHLOSSEN");
+            library_text.setText("Geschlossen");
             library_text.setTextColor(Color.RED);
         }
         return true;

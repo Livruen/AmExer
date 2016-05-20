@@ -24,6 +24,7 @@ public class ChooseCampusMaps extends AppCompatActivity {
         campusSalzdahlumer = (Button) findViewById(R.id.campusSalzdahlumer);
         setActions();
 
+
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {

@@ -42,8 +42,8 @@ public class Offices extends AppCompatActivity {
         }
 
 
-         internationalOffice = (Button) this.findViewById(R.id.international_office);
-         Immatrikulationsbuero = (Button) this.findViewById(R.id.Immatrikulationsbuero);
+         internationalOffice = (Button) this.findViewById(R.id.campusExer);
+         Immatrikulationsbuero = (Button) this.findViewById(R.id.campusSalzdahlumer);
          Career_Service = (Button) this.findViewById(R.id.Career_Service);
          Servicebueros = (Button) this.findViewById(R.id.Servicebueros);
          Studienfoerderung = (Button) this.findViewById(R.id.Studienfoerderung);

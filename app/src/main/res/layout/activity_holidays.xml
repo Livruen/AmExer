@@ -22,7 +22,9 @@
         android:layout_below="@+id/editText_holidays"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:clickable="false" />
+        android:clickable="false"
+        android:focusable="false"
+        android:focusableInTouchMode="false" />
 
     <EditText
         android:layout_width="match_parent"

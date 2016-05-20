@@ -18,8 +18,8 @@ public class ChooseCampus extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_campus_food);
 
-        campusMain = (Button) findViewById(R.id.Immatrikulationsbuero);
-        campusAmExer = (Button) findViewById(R.id.international_office);
+        campusMain = (Button) findViewById(R.id.campusSalzdahlumer);
+        campusAmExer = (Button) findViewById(R.id.campusExer);
 
         setAction();
 

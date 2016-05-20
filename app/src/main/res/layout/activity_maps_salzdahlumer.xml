@@ -26,8 +26,8 @@
         android:layout_centerHorizontal="true" />
 
     <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
         android:id="@+id/imageViewMapSalzdahlumer"
         android:src="@drawable/map_salzdahlumer"
         android:layout_below="@+id/editText_maps"

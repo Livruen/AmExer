@@ -1,38 +1,34 @@
 package de.ostfalia.amexer;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.View;
+import android.widget.Button;
 
-import java.io.InputStream;
-import java.util.ArrayList;
-import java.util.List;
-
-import de.ostfalia.amexer.entries.CSVReader;
 
 public class Offices extends AppCompatActivity {
-    private ListView officesListView;
-    private ArrayAdapter<String> officeslistAdapter;
-    private List<String> officesList;
-    private InputStream inputStream;
+
+    private Button internationalOffice;
+    private Button Immatrikulationsbuero;
+    private Button Career_Service;
+    private Button Servicebueros;
+    private Button Studienfoerderung;
+    private Button Studienberatung;
+
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        /*// Gets the csv
-        try {
-            inputStream = this.getAssets().open("offices_data.csv");
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offices);
-
-        /*fillList();
-        officesListView = (ListView) findViewById(R.id.sportListView);*/
+        context = this;
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();
@@ -44,23 +40,73 @@ public class Offices extends AppCompatActivity {
         } else {
             Log.i(this.getClass().toString(), "no action bar");
         }
+
+
+         internationalOffice = (Button) this.findViewById(R.id.international_office);
+         Immatrikulationsbuero = (Button) this.findViewById(R.id.Immatrikulationsbuero);
+         Career_Service = (Button) this.findViewById(R.id.Career_Service);
+         Servicebueros = (Button) this.findViewById(R.id.Servicebueros);
+         Studienfoerderung = (Button) this.findViewById(R.id.Studienfoerderung);
+         Studienberatung = (Button) this.findViewById(R.id.studienberatung);
+
+      setButtonAction();
+
     }
 
-    /**
-     * Fills the list with data
-     */
-    private void fillList() {
-        officesList = new ArrayList<>(new CSVReader(inputStream).getData());
+    private void setButtonAction() {
+        internationalOffice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.ostfalia.de/cms/de/international/internationales_Buero_-_student_office");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
-        officeslistAdapter =
-                new ArrayAdapter<>(
-                        this,                             // This Activity)
-                        R.layout.list_item_officeslist,   // ID from XML-Layout-Data
-                        R.id.linearLayout_offices,        // ID from LinearLayout
-                        officesList);                     // Daten from ArrayList
+        Immatrikulationsbuero.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.ostfalia.de/cms/de/ssc/immatrikulation/?nav2=true");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
 
-        ListView sportslistListView = (ListView) this.findViewById(R.id.sportListView);
-        sportslistListView.setAdapter(officeslistAdapter);
-        officeslistAdapter.notifyDataSetChanged();
+        Career_Service.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.ostfalia.de/cms/de/career");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        Servicebueros.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.ostfalia.de/cms/de/ssc/servicebueros/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        Studienfoerderung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.ostfalia.de/cms/de/stipendien");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        Studienberatung.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("https://www.ostfalia.de/cms/de/studienberatung/");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
     }
+
 }

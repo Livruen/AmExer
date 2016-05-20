@@ -20,15 +20,9 @@ public class ChooseCampusMaps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_campus_maps);
 
-<<<<<<< HEAD
-        campusAmExer = (Button) findViewById(R.id.international_office);
-        campusSalzdahlumer = (Button) findViewById(R.id.Immatrikulationsbuero);
-        setAction();
-=======
         campusAmExer = (Button) findViewById(R.id.campusExer);
         campusSalzdahlumer = (Button) findViewById(R.id.campusSalzdahlumer);
         setActions();
->>>>>>> 670567217198a7fd6fb018f48d8ac8fac7dfd71b
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();

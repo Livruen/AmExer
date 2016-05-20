@@ -1,12 +1,16 @@
 package de.ostfalia.amexer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -22,14 +26,13 @@ public class FoodAmMain extends AppCompatActivity {
     private final int MENSA_OPEN_TIME_CSV = 0;
     private final int MENSA_CLOSE_TIME_CSV = 1;
 
-    private int mensa_open_hour;
-    private int mensa_close_hour;
-
-    ArrayList<String> openHours;
+    private int mensaOpenHour;
+    private int mensaCloseHour;
 
     /* Activity Objects */
-    private EditText mensa_text;
-    private EditText mensa_time;
+    private EditText mensaBigText;
+    private EditText mensaSmallText;
+    private ImageButton mensaButton;
 
     Context context;
 
@@ -61,8 +64,11 @@ public class FoodAmMain extends AppCompatActivity {
         }
 
         // Initialize Activity Objects
-        mensa_text = (EditText) this.findViewById(R.id.mensa_text);
-        mensa_time = (EditText) this.findViewById(R.id.mensa_time);
+        mensaBigText = (EditText) this.findViewById(R.id.mensa_text);
+        mensaSmallText = (EditText) this.findViewById(R.id.mensa_time);
+        mensaButton = (ImageButton) this.findViewById(R.id.mensa_button);
+
+        setButtonAction();
 
         //Get Time
         Calendar c = Calendar.getInstance();
@@ -71,33 +77,52 @@ public class FoodAmMain extends AppCompatActivity {
 
         if(dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY){
 
-            mensa_text.setText("Wochenende");
-            mensa_text.setTextColor(Color.YELLOW);
-            mensa_time.setText("Wir haben frei");
+            mensaBigText.setText("Wochenende");
+            mensaBigText.setTextColor(Color.YELLOW);
+            mensaSmallText.setText("Wir haben frei");
 
         }else {
 
             int currentHour =  c.get(Calendar.HOUR_OF_DAY);
 
-            if(currentHour >= mensa_open_hour && currentHour <= mensa_close_hour){
-                mensa_text.setText(R.string.open, TextView.BufferType.EDITABLE);
-                mensa_text.setTextColor(Color.GREEN);
-                mensa_time.setText("Offen bis " + mensa_close_hour +":00");
+            if(currentHour >= mensaOpenHour && currentHour <= mensaCloseHour){
+                mensaBigText.setText(R.string.open, TextView.BufferType.EDITABLE);
+                mensaBigText.setTextColor(Color.GREEN);
+                mensaSmallText.setText("Offen bis " + mensaCloseHour + ":00");
             } else {
-                mensa_text.setText(R.string.closed, TextView.BufferType.EDITABLE);
-                mensa_text.setTextColor(Color.RED);
-                mensa_time.setText("Wir sind sehen uns um " + mensa_open_hour +":00");
+                mensaBigText.setText(R.string.closed, TextView.BufferType.EDITABLE);
+                mensaBigText.setTextColor(Color.RED);
+                mensaSmallText.setText("Wir sind sehen uns um " + mensaOpenHour + ":00");
             }
         }
 
     }
 
+    /**
+     *  When the Image will be clicked, than a Browser with the Restaurant menu will be openned.
+     */
+    private void setButtonAction() {
+        mensaButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://www.stw-on.de/wolfenbuettel/essen/menus/mensa-ostfalia");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * Gets the openning and closing times from a CSV File and assings it to
+     * private variables.
+     * @param iS
+     */
     private void setOpenHours(InputStream iS) {
-        openHours = new ArrayList<>();
+
 
         ArrayList<String> hoursInString = new ArrayList<>(new CSVReader(iS).getData());
 
-        mensa_open_hour = Integer.parseInt(hoursInString.get(MENSA_OPEN_TIME_CSV));
-        mensa_close_hour = Integer.parseInt(hoursInString.get(MENSA_CLOSE_TIME_CSV));
+        mensaOpenHour = Integer.parseInt(hoursInString.get(MENSA_OPEN_TIME_CSV));
+        mensaCloseHour = Integer.parseInt(hoursInString.get(MENSA_CLOSE_TIME_CSV));
     }
 }

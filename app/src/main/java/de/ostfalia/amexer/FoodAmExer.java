@@ -1,12 +1,16 @@
 package de.ostfalia.amexer;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import java.io.IOException;
@@ -24,23 +28,18 @@ public class FoodAmExer extends AppCompatActivity {
     private final int LIMES_OPEN_TIME_CSV = 2;
     private final int LIMES_CLOSE_TIME_CSV = 3;
 
-    private final int SOLFERINO = 0;
-    private final int LIMES = 1;
 
-    private int solferino_open_hour;
-    private int solferino_close_hour;
+    private int solferinoOpenHour;
+    private int solferinoCloseHour;
 
-    private int limes_open_hour;
-    private int limes_close_hour;
+    private int limesOpenHour;
+    private int limesCloseHour;
 
-    ArrayList<String> openHours;
 
     /* Activity Objects */
-    private EditText solferino_text;
-    private EditText solferino_time;
 
-    private EditText limes_text;
-    private EditText limes_time;
+    private ImageButton solferinoButton;
+    private ImageButton limesButton;
 
     Context context;
 
@@ -71,62 +70,94 @@ public class FoodAmExer extends AppCompatActivity {
         }
 
         // Initialize Activity Objects
-        solferino_text = (EditText) findViewById(R.id.solferino_text);
-        solferino_time = (EditText) findViewById(R.id.mensa_time);
-        limes_text = (EditText) findViewById(R.id.limes_text);
-        limes_time = (EditText) findViewById(R.id.limes_time);
 
-        //Get Time
+        EditText solferinoBigText = (EditText) findViewById(R.id.solferino_text);
+        EditText solferinoSmallText = (EditText) findViewById(R.id.mensa_time);
+        solferinoButton = (ImageButton) findViewById(R.id.mensa_button);
+
+        EditText limesBigText = (EditText) findViewById(R.id.limes_text);
+        EditText limesSmallText = (EditText) findViewById(R.id.limes_time);
+        limesButton = (ImageButton) findViewById(R.id.limes_button);
+
+        setButtonAction();
+
+        //Gets the current Time
         Calendar c = Calendar.getInstance();
-
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
+
 
         if(dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY){
 
-            solferino_text.setText("Wochenende");
-            solferino_text.setTextColor(Color.YELLOW);
-            solferino_time.setText("Wir haben frei");
-            limes_text.setText("Wochenende");
-            limes_text.setTextColor(Color.YELLOW);
-            limes_time.setText("Wir haben frei");
+            solferinoBigText.setText(R.string.wochenende);
+            solferinoBigText.setTextColor(Color.YELLOW);
+            solferinoSmallText.setText(R.string.frei);
+            limesBigText.setText(R.string.wochenende);
+            limesBigText.setTextColor(Color.YELLOW);
+            limesSmallText.setText(R.string.frei);
 
         }else {
 
             int currentHour =  c.get(Calendar.HOUR_OF_DAY);
 
-            if(currentHour >= solferino_open_hour && currentHour < solferino_close_hour){
-                solferino_text.setText(R.string.open, TextView.BufferType.EDITABLE);
-                solferino_text.setTextColor(Color.GREEN);
-                solferino_time.setText("Offen bis " + solferino_close_hour +":00");
+            if(currentHour >= solferinoOpenHour && currentHour < solferinoCloseHour){
+                solferinoBigText.setText(R.string.open, TextView.BufferType.EDITABLE);
+                solferinoBigText.setTextColor(Color.GREEN);
+                solferinoSmallText.setText(getString(R.string.offen_bis) + solferinoCloseHour + getString(R.string.zero_minute));
             } else {
-                solferino_text.setText(R.string.closed, TextView.BufferType.EDITABLE);
-                solferino_text.setTextColor(Color.RED);
-                solferino_time.setText("Wir sind sehen uns um " + solferino_open_hour +":00");
+                solferinoBigText.setText(R.string.closed, TextView.BufferType.EDITABLE);
+                solferinoBigText.setTextColor(Color.RED);
+                solferinoSmallText.setText(getString(R.string.wir_sehen_uns) + solferinoOpenHour + getString(R.string.zero_minute));
             }
 
-            if(currentHour >= limes_open_hour && currentHour < limes_close_hour){
-                limes_text.setText(R.string.open, TextView.BufferType.EDITABLE);
-                limes_text.setTextColor(Color.GREEN);
-                limes_time.setText("Offen bis " + limes_close_hour +":00");
+            if(currentHour >= limesOpenHour && currentHour < limesCloseHour){
+                limesBigText.setText(R.string.open, TextView.BufferType.EDITABLE);
+                limesBigText.setTextColor(Color.GREEN);
+                limesSmallText.setText(getString(R.string.offen_bis) + limesCloseHour + getString(R.string.zero_minute));
             } else {
-                limes_text.setText(R.string.closed, TextView.BufferType.EDITABLE);
-                limes_text.setTextColor(Color.RED);
-                limes_time.setText("Wir sind sehen uns um " + limes_open_hour +":00");
+                limesBigText.setText(R.string.closed, TextView.BufferType.EDITABLE);
+                limesBigText.setTextColor(Color.RED);
+                limesSmallText.setText(getString(R.string.wir_sehen_uns) + limesOpenHour + getString(R.string.zero_minute));
             }
         }
 
     }
 
+    /**
+     *  When the Image will be clicked, than a Browser with the Restaurant menu will be openned.
+     */
+    private void setButtonAction() {
+
+        solferinoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://www.kv.drk-kv-wf.de/fileadmin/user_upload/aktuelles/speisepl%C3%A4ne/menu-solferino.pdf");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+
+        limesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Uri uri = Uri.parse("http://limes.dragosardo.de");
+                Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+                startActivity(intent);
+            }
+        });
+    }
+
+    /**
+     * Gets the openning and closing times from a CSV File and assings it to
+     * private variables.
+     * @param iS
+     */
     private void setOpenHours(InputStream iS) {
-        openHours = new ArrayList<>();
 
         ArrayList<String> hoursInString = new ArrayList<>(new CSVReader(iS).getData());
 
-        solferino_open_hour = Integer.parseInt(hoursInString.get(SOLFERINO_OPEN_TIME_CSV));
-        solferino_close_hour = Integer.parseInt(hoursInString.get(SOLFERINO_CLOSE_TIME_CSV));
-        limes_open_hour = Integer.parseInt(hoursInString.get(LIMES_OPEN_TIME_CSV));
-        limes_close_hour = Integer.parseInt(hoursInString.get(LIMES_CLOSE_TIME_CSV));
+        solferinoOpenHour = Integer.parseInt(hoursInString.get(SOLFERINO_OPEN_TIME_CSV));
+        solferinoCloseHour = Integer.parseInt(hoursInString.get(SOLFERINO_CLOSE_TIME_CSV));
+        limesOpenHour = Integer.parseInt(hoursInString.get(LIMES_OPEN_TIME_CSV));
+        limesCloseHour = Integer.parseInt(hoursInString.get(LIMES_CLOSE_TIME_CSV));
     }
-
-
 }

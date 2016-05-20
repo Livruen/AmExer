@@ -34,7 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/campusExer"
-            android:id="@+id/campusExer"
+            android:id="@+id/international_office"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/round_shape"
             android:textColor="#ffffff"
@@ -43,7 +43,7 @@
             android:elevation="20dp"
             android:elegantTextHeight="true"
             android:clickable="true"
-            android:layout_above="@+id/campusSalzdahlumer"
+            android:layout_above="@+id/Immatrikulationsbuero"
             android:layout_centerHorizontal="true"
             android:focusableInTouchMode="true"
             android:height="60dp"
@@ -53,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/campusSalzdahlumer"
-            android:id="@+id/campusSalzdahlumer"
+            android:id="@+id/Immatrikulationsbuero"
             android:layout_gravity="center_horizontal"
             android:clickable="true"
             android:background="@drawable/round_shape"
@@ -63,8 +63,8 @@
             android:layout_alignParentBottom="true"
             android:elevation="10dp"
             android:height="60dp"
-            android:layout_alignLeft="@+id/campusExer"
-            android:layout_alignStart="@+id/campusExer" />
+            android:layout_alignLeft="@+id/international_office"
+            android:layout_alignStart="@+id/international_office" />
     </RelativeLayout>
 
 

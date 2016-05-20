@@ -14,10 +14,10 @@ import java.util.List;
 
 import de.ostfalia.amexer.entries.CSVReader;
 
+/**
+ * Activity for holidays-buttons
+ */
 public class Holidays extends AppCompatActivity {
-    private ListView holidaysListView;
-    private ArrayAdapter<String> holidayslistAdapter;
-    private List<String> holidaysList;
     private InputStream inputStream;
 
     @Override
@@ -33,7 +33,6 @@ public class Holidays extends AppCompatActivity {
         setContentView(R.layout.activity_holidays);
 
         fillList();
-        holidaysListView = (ListView) findViewById(R.id.holidayListView);
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();
@@ -42,9 +41,9 @@ public class Holidays extends AppCompatActivity {
             actionBar.setIcon(R.mipmap.ic_holidays);
             //Removes the text in action bar
             actionBar.setDisplayShowTitleEnabled(false);
-            Log.i(this.getClass().toString(), " action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
     }
 
@@ -52,16 +51,16 @@ public class Holidays extends AppCompatActivity {
      * Fills the list with data
      */
     private void fillList() {
-        holidaysList = new ArrayList<>(new CSVReader(inputStream).getData());
+        List<String> holidaysList = new ArrayList<>(new CSVReader(inputStream).getData());
 
-        holidayslistAdapter =
-                new ArrayAdapter<>(
-                        this,                               // This activity
-                        R.layout.list_item_holidayslist,    // ID from XML-Layout-Data
-                        R.id.item_list_textview_holidays,   // ID from TextViews
-                        holidaysList);                      // Data in ArrayList
+        ArrayAdapter<String> holidayslistAdapter = new ArrayAdapter<>(
+                this,                               // This activity
+                R.layout.list_item_holidayslist,    // ID from XML-Layout-Data
+                R.id.item_list_textview_holidays,   // ID from TextViews
+                holidaysList);
 
         ListView holidayslistListView = (ListView) this.findViewById(R.id.holidayListView);
+        assert holidayslistListView != null;
         holidayslistListView.setAdapter(holidayslistAdapter);
         holidayslistAdapter.notifyDataSetChanged();
     }

@@ -9,6 +9,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+/**
+ * Activity for afterschool-buttons
+ */
 public class AfterSchool extends AppCompatActivity {
     private Button btnPubs;
     private Button btnClubs;
@@ -37,14 +40,14 @@ public class AfterSchool extends AppCompatActivity {
             actionBar.setIcon(R.mipmap.ic_after_school);
             // Removes the text in Action bar
             actionBar.setDisplayShowTitleEnabled(false);
-            Log.i(this.getClass().toString(), " action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
     }
 
     /**
-     * Opens Google Maps-App or Google Map in Browser with Search-String
+     * Opens Google Maps-App or Google Map in choosen browser with Search-String
      */
     private void setActions() {
         btnPubs.setOnClickListener(new View.OnClickListener() {

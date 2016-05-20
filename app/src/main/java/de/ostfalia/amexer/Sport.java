@@ -18,9 +18,12 @@ import java.util.List;
 
 import de.ostfalia.amexer.entries.CSVReader;
 
+/**
+ * Activity for showing the sportcourses from ostfalia in a ListView
+ * By clicking an element (sportcourse) the browser will be startet with the e-filling
+ */
 public class Sport extends AppCompatActivity {
     private ListView sportsListView;
-    private ArrayAdapter<String> sportslistAdapter;
     private List<String> sportsList;
     private InputStream inputStream;
 
@@ -45,10 +48,11 @@ public class Sport extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_sport);
-            actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i(this.getClass().toString(), " action bar");
+            // removes the Text from action-bar
+            actionBar.setDisplayShowTitleEnabled(false);
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
     }
 
@@ -58,14 +62,14 @@ public class Sport extends AppCompatActivity {
     private void fillList() {
         sportsList = new ArrayList<>(new CSVReader(inputStream).getData());
 
-        sportslistAdapter =
-                new ArrayAdapter<>(
-                        this,                           // This Activity)
-                        R.layout.list_item_sportslist,  // ID from XML-Layout-Data
-                        R.id.item_list_textview,        // ID from TextViews
-                        sportsList);                    // Daten from ArrayList
+        ArrayAdapter<String> sportslistAdapter = new ArrayAdapter<>(
+                this,                           // This Activity
+                R.layout.list_item_sportslist,  // ID from XML-Layout-Data
+                R.id.item_list_textview,        // ID from TextViews
+                sportsList);
 
         ListView sportslistListView = (ListView) this.findViewById(R.id.sportListView);
+        assert sportslistListView != null;
         sportslistListView.setAdapter(sportslistAdapter);
         sportslistAdapter.notifyDataSetChanged();
     }
@@ -77,21 +81,28 @@ public class Sport extends AppCompatActivity {
         sportsListView.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-                //Hier wird aus dem Sportnamen ein Link erstellt //TODO wird hier sportsLink in uri eingefügt, wird _ als %20 angezeigt
-                /*String sportsLink = sportsList.get(position);
-                sportsLink.replace(" ", "_");
-                sportsLink.replace("ä", "ae");
-                sportsLink.replace("ö", "oe");
-                sportsLink.replace("ü", "ue");
-                sportsLink.replace("ß", "ss");
-                sportsLink.replace("/", "_");
-                sportsLink.replace("(", "_");
-                sportsLink.replace(")", "_");*/
-
-                Uri uri = Uri.parse("https://www.hochschulsport.ostfalia.de/angebote/aktueller_zeitraum/_" + sportsList.get(position).replace(" ", "_").replace("ä", "ae").replace("ö", "oe").replace("ü", "ue").replace("ß", "ss").replace("/", "_").replace("(", "_").replace(")", "_") + ".html");
+                Uri uri = sporttypeToUri(sportsList.get(position));
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }
         });
+    }
+
+    /**
+     * Convert a sporttype to a uri
+     * @param s string to convert
+     * @return uri
+     */
+    private Uri sporttypeToUri(String s) {
+        String webUri = "https://www.hochschulsport.ostfalia.de/angebote/aktueller_zeitraum/_";
+        return Uri.parse(webUri + s.replace(" ", "_")
+                .replace("ä", "ae")
+                .replace("ö", "oe")
+                .replace("ü", "ue")
+                .replace("ß", "ss")
+                .replace("/", "_")
+                .replace("(", "_")
+                .replace(")", "_")
+                + ".html");
     }
 }

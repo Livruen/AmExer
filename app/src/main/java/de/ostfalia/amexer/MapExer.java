@@ -20,6 +20,9 @@ import java.util.List;
 
 import de.ostfalia.amexer.entries.CSVReader;
 
+/**
+ * Activity for showing a map of the exercampus
+ */
 public class MapExer extends AppCompatActivity {
     private ImageView imageViewMapExer;
     private InputStream inputStream;
@@ -48,10 +51,11 @@ public class MapExer extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_maps);
-            actionBar.setDisplayShowTitleEnabled(false); // deletes the text from action bar
-            Log.i(this.getClass().toString(), " action bar");
+            // deletes the text from action bar
+            actionBar.setDisplayShowTitleEnabled(false);
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
     }
 
@@ -66,6 +70,9 @@ public class MapExer extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sets the action by clicking image (popup with info)
+     */
     private void setActions() {
         imageViewMapExer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,13 +82,16 @@ public class MapExer extends AppCompatActivity {
         });
     }
 
+    /**
+     * Opens a popup with a list with informations
+     */
     private void showList() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setIcon(R.mipmap.ic_maps);
         builder.setTitle(R.string.gebaudeExer);
 
         builder.setNegativeButton(
-                "Schließen",
+                R.string.close,
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
@@ -90,8 +100,8 @@ public class MapExer extends AppCompatActivity {
                 });
 
         ListView modeList = new ListView(this);
-        String[] stringArray = exerList.toArray(new String[0]);
-        ArrayAdapter<String> modeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, stringArray);
+        String[] stringArray = exerList.toArray(new String[exerList.size()]);
+        ArrayAdapter<String> modeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, stringArray);
         modeList.setAdapter(modeAdapter);
 
         builder.setView(modeList);

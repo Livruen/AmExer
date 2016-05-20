@@ -49,9 +49,9 @@ public class MapSalzdahlumer extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_maps);
             actionBar.setDisplayShowTitleEnabled(false); // deletes the text from action bar
-            Log.i(this.getClass().toString(), " action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
     }
 
@@ -90,8 +90,8 @@ public class MapSalzdahlumer extends AppCompatActivity {
                 });
 
         ListView modeList = new ListView(this);
-        String[] stringArray = salzdahlumerList.toArray(new String[0]);
-        ArrayAdapter<String> modeAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, stringArray);
+        String[] stringArray = salzdahlumerList.toArray(new String[salzdahlumerList.size()]);
+        ArrayAdapter<String> modeAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, android.R.id.text1, stringArray);
         modeList.setAdapter(modeAdapter);
 
         builder.setView(modeList);

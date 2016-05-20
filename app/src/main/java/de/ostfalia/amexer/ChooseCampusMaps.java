@@ -9,7 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * Created by Lina on 22.04.2016.
+ * Activity for choosing campus (exer or salzdahlumer)
  */
 public class ChooseCampusMaps extends AppCompatActivity {
     private Button campusAmExer;
@@ -20,24 +20,33 @@ public class ChooseCampusMaps extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_choose_campus_maps);
 
+<<<<<<< HEAD
         campusAmExer = (Button) findViewById(R.id.international_office);
         campusSalzdahlumer = (Button) findViewById(R.id.Immatrikulationsbuero);
         setAction();
+=======
+        campusAmExer = (Button) findViewById(R.id.campusExer);
+        campusSalzdahlumer = (Button) findViewById(R.id.campusSalzdahlumer);
+        setActions();
+>>>>>>> 670567217198a7fd6fb018f48d8ac8fac7dfd71b
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_maps);
-            actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i(this.getClass().toString(), " action bar");
+            // removes the text in action-bar
+            actionBar.setDisplayShowTitleEnabled(false);
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
     }
 
-    private void setAction(){
-
+    /**
+     * Sets the action by button-click
+     */
+    private void setActions(){
         campusAmExer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

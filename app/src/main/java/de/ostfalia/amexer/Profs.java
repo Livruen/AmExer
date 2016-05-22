@@ -5,7 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 /**
- * the class shows an image on the actionbar
+ * the class shows an developer image on the actionbar
+ * TODO : class needs to be implement
  *
  *
  * @autor Natasza Szczypien
@@ -17,7 +18,13 @@ public class Profs extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profs);
 
-        //Puts an Image to the Action Bar
+        setImageActionBar();
+    }
+
+    /**
+     * Puts an Image to the Action Bar
+     */
+    private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);

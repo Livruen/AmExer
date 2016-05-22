@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.ImageButton;
 
 public class AmExer extends AppCompatActivity {
+
     private ImageButton food_button;
     private ImageButton maps_button;
     private ImageButton sport_button;
@@ -28,7 +29,11 @@ public class AmExer extends AppCompatActivity {
             setContentView(R.layout.activity_am_exer_portrait);
         }
 
+        initActivityObjects();
+        setActions();
+    }
 
+    private void initActivityObjects() {
         food_button = (ImageButton) findViewById(R.id.food_button);
         maps_button = (ImageButton) findViewById(R.id.maps_button);
         sport_button = (ImageButton) findViewById(R.id.sport_button);
@@ -38,8 +43,6 @@ public class AmExer extends AppCompatActivity {
         data_center_button = (ImageButton) findViewById(R.id.data_center_button);
         after_school_button = (ImageButton) findViewById(R.id.after_school_button);
         profs_button = (ImageButton) findViewById(R.id.profs_button);
-
-        setActions();
     }
 
     public void setActions() {

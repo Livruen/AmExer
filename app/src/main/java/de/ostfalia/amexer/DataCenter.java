@@ -36,7 +36,15 @@ public class DataCenter extends AppCompatActivity {
         setContentView(R.layout.activity_data_center);
         context = this;
 
-        //Puts an Image to the Action Bar
+        setImageActionBar();
+        initActivityObjects();
+        setAvailibility();
+    }
+
+    /**
+     *  Puts an Image to the Action Bar
+     */
+    private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
@@ -46,36 +54,28 @@ public class DataCenter extends AppCompatActivity {
         } else {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
+    }
 
+    /**
+     * Initialize Activity Objects
+     */
+    private void initActivityObjects() {
         dataCenterText = (TextView) findViewById(R.id.data_center_text);
+    }
+
+    /**
+     * sets the Availibility text on the screen
+     *
+     * @return is needed because if it is a weekday he sets "Geschlossen" and doesn't go forward in the code
+     */
+    private boolean setAvailibility() {
 
         //Get current Time and date
         Calendar c = Calendar.getInstance();
 
         int currentHour = c.get(Calendar.HOUR_OF_DAY);
         int currentMinute = c.get(Calendar.MINUTE);
-
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DATE);
         int dayType = c.get(Calendar.DAY_OF_WEEK);
-
-        setAvailibility(year, month, day, dayType, currentHour, currentMinute);
-
-    }
-
-    /**
-     * sets the Availibility text on the screen
-     *
-     * @param year
-     * @param month
-     * @param day
-     * @param dayType
-     * @param currentHour
-     * @param currentMinute
-     * @return is needed because if it is a weekday he sets "Geschlossen" and doesn't go forward in the code
-     */
-    private boolean setAvailibility(int year, int month, int day, int dayType, int currentHour, int currentMinute) {
 
         if (dayType == Calendar.SATURDAY || dayType == Calendar.SUNDAY) {
 

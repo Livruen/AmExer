@@ -55,13 +55,23 @@ public class FoodAmMain extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        setOpenHours(iS);
+        getOpenHoursFromCSV(iS);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_am_main);
         context = this;
 
-        //Puts an Image to the Action Bar
+        setImageActionBar();
+        initActivityObjects();
+        setButtonAction();
+        setAvailibility();
+
+    }
+
+    /**
+     * Puts an Image to the Action Bar
+     */
+    private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
@@ -71,15 +81,13 @@ public class FoodAmMain extends AppCompatActivity {
         } else {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
+    }
 
-        // Initialize Activity Objects
-        mensaBigText = (EditText) this.findViewById(R.id.mensa_text);
-        mensaSmallText = (EditText) this.findViewById(R.id.mensa_time);
-        mensaButton = (ImageButton) this.findViewById(R.id.solferino_button);
-
-        setButtonAction();
-
-        //Get Time
+    /**
+     * Gets the current date and time, compares with the opening times of the restaurants
+     * and sets the output on the activity_food_am_main
+     */
+    private void setAvailibility() {
         Calendar c = Calendar.getInstance();
 
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
@@ -104,7 +112,15 @@ public class FoodAmMain extends AppCompatActivity {
                 mensaSmallText.setText(R.string.wir_sehen_uns + mensaOpenHour + R.string.zero_minute);
             }
         }
+    }
 
+    /**
+     * Initialize Activity Objects
+     */
+    private void initActivityObjects() {
+        mensaBigText = (EditText) this.findViewById(R.id.mensa_text);
+        mensaSmallText = (EditText) this.findViewById(R.id.mensa_time);
+        mensaButton = (ImageButton) this.findViewById(R.id.solferino_button);
     }
 
     /**
@@ -126,11 +142,9 @@ public class FoodAmMain extends AppCompatActivity {
      * private variables.
      * @param iS
      */
-    private void setOpenHours(InputStream iS) {
-
+    private void getOpenHoursFromCSV(InputStream iS) {
 
         ArrayList<String> hoursInString = new ArrayList<>(new CSVReader(iS).getData());
-
         mensaOpenHour = Integer.parseInt(hoursInString.get(MENSA_OPEN_TIME_CSV));
         mensaCloseHour = Integer.parseInt(hoursInString.get(MENSA_CLOSE_TIME_CSV));
     }

@@ -25,9 +25,14 @@ public class ChooseCampus extends AppCompatActivity {
         campusMain = (Button) findViewById(R.id.campusSalzdahlumer);
         campusAmExer = (Button) findViewById(R.id.campusExer);
 
+        setImageActionBar();
         setAction();
+    }
 
-        //Puts an Image to the Action Bar
+    /**
+     * Puts an Image to the Action Bar
+     */
+    private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);

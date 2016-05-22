@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/ScrollView01"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
     android:paddingBottom="0dp"
     android:paddingLeft="0dp"
     android:paddingRight="0dp"
     android:paddingTop="0dp"
     tools:context=".Offices">
+
+
+
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,138 +31,126 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center_vertical|center_horizontal"
-        android:layout_below="@+id/editText_choose_campus_food">
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_alignParentTop="false"
+        android:gravity="center">
 
-        <ScrollView
-            android:layout_width="wrap_content"
+        <Button
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/scrollView"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" >
+            android:text="International Office"
+            android:id="@+id/campusExer"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:layout_above="@+id/campusSalzdahlumer"
+            android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="true"
 
-            <LinearLayout
-                android:orientation="vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true">
+            android:height="60dp"
+            android:layout_margin="10dp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="International Office"
-                    android:id="@+id/campusExer"
-                    android:background="@drawable/round_shape"
-                    android:textColor="#ffffff"
-                    android:textStyle="normal"
-                    android:width="200dp"
-                    android:elevation="10dp"
-                    android:elegantTextHeight="true"
-                    android:clickable="true"
-                    android:layout_above="@+id/campusSalzdahlumer"
-                    android:layout_centerHorizontal="true"
-                    android:focusableInTouchMode="true"
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Immatrikulationsbuero"
+            android:id="@+id/campusSalzdahlumer"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:layout_above="@+id/campusSalzdahlumer"
+            android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_margin="10dp" />
 
-                    android:height="60dp"
-                    android:layout_margin="10dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Career Service"
+            android:id="@+id/Career_Service"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:layout_above="@+id/campusSalzdahlumer"
+            android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_margin="10dp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Immatrikulationsbuero"
-                    android:id="@+id/campusSalzdahlumer"
-                    android:background="@drawable/round_shape"
-                    android:textColor="#ffffff"
-                    android:textStyle="normal"
-                    android:width="200dp"
-                    android:elevation="10dp"
-                    android:elegantTextHeight="true"
-                    android:clickable="true"
-                    android:layout_above="@+id/campusSalzdahlumer"
-                    android:layout_centerHorizontal="true"
-                    android:focusableInTouchMode="true"
-                    android:height="60dp"
-                    android:layout_margin="10dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Servicebueros "
+            android:id="@+id/Servicebueros"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:layout_above="@+id/campusSalzdahlumer"
+            android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_margin="10dp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Career Service"
-                    android:id="@+id/Career_Service"
-                    android:background="@drawable/round_shape"
-                    android:textColor="#ffffff"
-                    android:textStyle="normal"
-                    android:width="200dp"
-                    android:elevation="10dp"
-                    android:elegantTextHeight="true"
-                    android:clickable="true"
-                    android:layout_above="@+id/campusSalzdahlumer"
-                    android:layout_centerHorizontal="true"
-                    android:focusableInTouchMode="true"
-                    android:height="60dp"
-                    android:layout_margin="10dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Studienfoerderung"
+            android:id="@+id/Studienfoerderung"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:layout_above="@+id/campusSalzdahlumer"
+            android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_margin="10dp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Servicebueros "
-                    android:id="@+id/Servicebueros"
-                    android:background="@drawable/round_shape"
-                    android:textColor="#ffffff"
-                    android:textStyle="normal"
-                    android:width="200dp"
-                    android:elevation="10dp"
-                    android:elegantTextHeight="true"
-                    android:clickable="true"
-                    android:layout_above="@+id/campusSalzdahlumer"
-                    android:layout_centerHorizontal="true"
-                    android:focusableInTouchMode="true"
-                    android:height="60dp"
-                    android:layout_margin="10dp" />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Studienberatung"
+            android:id="@+id/studienberatung"
+            android:background="@drawable/round_shape"
+            android:textColor="#ffffff"
+            android:textStyle="normal"
+            android:width="200dp"
+            android:elevation="10dp"
+            android:elegantTextHeight="true"
+            android:clickable="true"
+            android:layout_above="@+id/campusSalzdahlumer"
+            android:layout_centerHorizontal="true"
+            android:focusableInTouchMode="true"
+            android:height="60dp"
+            android:layout_margin="10dp" />
 
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Studienfoerderung"
-                    android:id="@+id/Studienfoerderung"
-                    android:background="@drawable/round_shape"
-                    android:textColor="#ffffff"
-                    android:textStyle="normal"
-                    android:width="200dp"
-                    android:elevation="10dp"
-                    android:elegantTextHeight="true"
-                    android:clickable="true"
-                    android:layout_above="@+id/campusSalzdahlumer"
-                    android:layout_centerHorizontal="true"
-                    android:focusableInTouchMode="true"
-                    android:height="60dp"
-                    android:layout_margin="10dp" />
-
-                <Button
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Studienberatung"
-                    android:id="@+id/studienberatung"
-                    android:background="@drawable/round_shape"
-                    android:textColor="#ffffff"
-                    android:textStyle="normal"
-                    android:width="200dp"
-                    android:elevation="10dp"
-                    android:elegantTextHeight="true"
-                    android:clickable="true"
-                    android:layout_above="@+id/campusSalzdahlumer"
-                    android:layout_centerHorizontal="true"
-                    android:focusableInTouchMode="true"
-                    android:height="60dp"
-                    android:layout_margin="10dp" />
-            </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
+    </LinearLayout>
 
 </RelativeLayout>
+</ScrollView>

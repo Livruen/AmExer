@@ -58,7 +58,23 @@ public class Library extends AppCompatActivity {
         setContentView(R.layout.activity_library);
         context = this;
 
-        //Puts an Image into the Action Bar
+        setImageActionBar();
+        initActivityObjects();
+        setAvailibility();
+
+    }
+
+    /**
+     * Initializing activity objects
+     */
+    private void initActivityObjects() {
+        libraryText = (TextView) findViewById(R.id.library_text);
+    }
+
+    /**
+     * Puts an Image into the Action Bar
+     */
+    private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
@@ -68,37 +84,25 @@ public class Library extends AppCompatActivity {
         } else {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
-
-        libraryText = (TextView) findViewById(R.id.library_text);
-
-        //Get current Time and date
-        Calendar c = Calendar.getInstance();
-
-        int currentHour = c.get(Calendar.HOUR_OF_DAY);
-        int currentMinute = c.get(Calendar.MINUTE);
-
-        int year = c.get(Calendar.YEAR);
-        int month = c.get(Calendar.MONTH);
-        int day = c.get(Calendar.DATE);
-        int dayType = c.get(Calendar.DAY_OF_WEEK);
-
-        setAvailibility(year, month, day, dayType, currentHour, currentMinute);
-
     }
 
 
     /**
      * sets the Availibility text on the screen
      *
-     * @param year
-     * @param month
-     * @param day
-     * @param dayType
-     * @param currentHour
-     * @param currentMinute
      * @return is needed because if it is a weekday he sets "Geschlossen" and doesn't go forward in the code
      */
-    private boolean setAvailibility(int year, int month, int day, int dayType, int currentHour, int currentMinute) {
+    private boolean setAvailibility() {
+
+        //Get current Time and date
+        Calendar c = Calendar.getInstance();
+
+        int currentHour = c.get(Calendar.HOUR_OF_DAY);
+        int currentMinute = c.get(Calendar.MINUTE);
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DATE);
+        int dayType = c.get(Calendar.DAY_OF_WEEK);
 
         if (dayType == Calendar.SATURDAY || dayType == Calendar.SUNDAY) {
 

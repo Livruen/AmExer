@@ -32,12 +32,31 @@ public class Offices extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offices);
         context = this;
 
-        //Puts an Image to the Action Bar
+        setImageActionBar();
+        initActivityObjects();
+        setButtonAction();
+    }
+
+    /**
+     * Initializing the aktivity buttons
+     */
+    private void initActivityObjects() {
+        internationalOffice = (Button) this.findViewById(R.id.campusExer);
+        immatrikulationsbuero = (Button) this.findViewById(R.id.campusSalzdahlumer);
+        careerService = (Button) this.findViewById(R.id.Career_Service);
+        serviceBueros = (Button) this.findViewById(R.id.Servicebueros);
+        studienfoerderung = (Button) this.findViewById(R.id.Studienfoerderung);
+        studienberatung = (Button) this.findViewById(R.id.studienberatung);
+    }
+
+    /**
+     * Puts an Image to the Action Bar
+     */
+    private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
@@ -47,17 +66,6 @@ public class Offices extends AppCompatActivity {
         } else {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
-
-        // Initializing the aktivity buttons
-         internationalOffice = (Button) this.findViewById(R.id.campusExer);
-         immatrikulationsbuero = (Button) this.findViewById(R.id.campusSalzdahlumer);
-         careerService = (Button) this.findViewById(R.id.Career_Service);
-         serviceBueros = (Button) this.findViewById(R.id.Servicebueros);
-         studienfoerderung = (Button) this.findViewById(R.id.Studienfoerderung);
-         studienberatung = (Button) this.findViewById(R.id.studienberatung);
-
-         setButtonAction();
-
     }
 
     private void setButtonAction() {

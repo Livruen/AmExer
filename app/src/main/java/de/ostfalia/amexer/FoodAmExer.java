@@ -47,8 +47,11 @@ public class FoodAmExer extends AppCompatActivity {
 
     /* Activity Objects */
     private ImageButton solferinoButton;
+    private  EditText solferinoBigText;
+    private EditText solferinoSmallText;
     private ImageButton limesButton;
-    private EditText solferino;
+    private EditText limesSmallText;
+    private EditText limesBigText;
 
     Context context;
 
@@ -62,12 +65,23 @@ public class FoodAmExer extends AppCompatActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        setOpenHours(iS);
+        getOpenHoursFromCSV(iS);
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_am_exer);
         context = this;
-        //Puts an Image to the Action Bar
+
+        setImageActionBar();
+        initActivityObjects();
+        setButtonAction();
+        setAvailibility();
+
+    }
+
+    /**
+     *   Puts an Image to the Action Bar
+     */
+    private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
@@ -77,20 +91,13 @@ public class FoodAmExer extends AppCompatActivity {
         } else {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
+    }
 
-        // Initialize Activity Objects
-
-        EditText solferinoBigText = (EditText) findViewById(R.id.solferino_text);
-        EditText solferinoSmallText = (EditText) findViewById(R.id.solferino_time);
-        solferinoButton = (ImageButton) findViewById(R.id.solferino_button);
-
-        EditText limesBigText = (EditText) findViewById(R.id.limes_text);
-        EditText limesSmallText = (EditText) findViewById(R.id.limes_time);
-        limesButton = (ImageButton) findViewById(R.id.limes_button);
-
-        setButtonAction();
-
-        //Gets the current Time
+    /**
+     * Gets the current date and time, compares with the opening times of the restaurants
+     * and sets the output on the activity_food_am_exer
+     */
+    private void setAvailibility() {
         Calendar c = Calendar.getInstance();
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 
@@ -128,7 +135,19 @@ public class FoodAmExer extends AppCompatActivity {
                 limesSmallText.setText(getString(R.string.wir_sehen_uns) + limesOpenHour + getString(R.string.zero_minute));
             }
         }
+    }
 
+    /**
+     *  Initialize Activity Objects
+     */
+    private void initActivityObjects() {
+        solferinoBigText = (EditText) findViewById(R.id.solferino_text);
+        solferinoSmallText = (EditText) findViewById(R.id.solferino_time);
+        solferinoButton = (ImageButton) findViewById(R.id.solferino_button);
+
+        limesBigText = (EditText) findViewById(R.id.limes_text);
+        limesSmallText = (EditText) findViewById(R.id.limes_time);
+        limesButton = (ImageButton) findViewById(R.id.limes_button);
     }
 
     /**
@@ -161,7 +180,7 @@ public class FoodAmExer extends AppCompatActivity {
      * private variables.
      * @param iS
      */
-    private void setOpenHours(InputStream iS) {
+    private void getOpenHoursFromCSV(InputStream iS) {
 
         ArrayList<String> hoursInString = new ArrayList<>(new CSVReader(iS).getData());
 

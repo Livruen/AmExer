@@ -27,11 +27,12 @@ import java.util.Calendar;
 import java.util.GregorianCalendar;
 
 import de.ostfalia.amexer.entries.CSVReader;
+import de.ostfalia.amexer.entries.TableHelper;
 
 public class Library extends AppCompatActivity {
 
     /* Activity-text that says if library is "OFFEN" or "GESCHLOSSEN" */
-    private TextView library_text;
+    private TextView libraryText;
 
     //  private InputStream iS;
 
@@ -68,7 +69,7 @@ public class Library extends AppCompatActivity {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
 
-        library_text = (TextView) findViewById(R.id.library_text);
+        libraryText = (TextView) findViewById(R.id.library_text);
 
         //Get current Time and date
         Calendar c = Calendar.getInstance();
@@ -101,8 +102,8 @@ public class Library extends AppCompatActivity {
 
         if (dayType == Calendar.SATURDAY || dayType == Calendar.SUNDAY) {
 
-            library_text.setText(R.string.closed);
-            library_text.setTextColor(Color.RED);
+            libraryText.setText(R.string.closed);
+            libraryText.setTextColor(Color.RED);
             return true;
 
         }
@@ -165,72 +166,22 @@ public class Library extends AppCompatActivity {
         } catch (NullPointerException e) {
             e.printStackTrace();
         }
-
+        TableHelper tableHelper = new TableHelper();
         /* Prepares the current library open-time-range  */
-        ArrayList<String> openHours = prepareTime(rowTime); // [openHour, openMinute, closeHour, closeMinute]
-        int tempOpenHour = Integer.parseInt(openHours.get(0));
-        int tempOpenMinute = Integer.parseInt(openHours.get(1));
-        int tempCloseHour = Integer.parseInt(openHours.get(2));
-        int tempCloseMinute = Integer.parseInt(openHours.get(3));
+        ArrayList<Integer> openHours = tableHelper.prepareTime(rowTime); // [openHour, openMinute, closeHour, closeMinute]
+        int tempOpenHour = openHours.get(0);
+        int tempOpenMinute = openHours.get(1);
+        int tempCloseHour = openHours.get(2);
+        int tempCloseMinute = openHours.get(3);
 
-        if (isOpen(tempOpenHour, tempOpenMinute, tempCloseHour, tempCloseMinute, currentHour, currentMinute)) {
-            library_text.setText(R.string.open);
-            library_text.setTextColor(Color.GREEN);
+        if (tableHelper.isOpen(tempOpenHour, tempOpenMinute, tempCloseHour, tempCloseMinute, currentHour, currentMinute)) {
+            libraryText.setText(R.string.open);
+            libraryText.setTextColor(Color.GREEN);
         } else {
-            library_text.setText(R.string.closed);
-            library_text.setTextColor(Color.RED);
+            libraryText.setText(R.string.closed);
+            libraryText.setTextColor(Color.RED);
         }
         return true;
-    }
-
-    /**
-     * Gets the TODAYs open-time-range from the Opening-time-table in
-     * activity_library
-     *
-     * @param rowTime
-     * @return list with times in String
-     */
-    private ArrayList<String> prepareTime(String rowTime) {
-
-        rowTime = rowTime.trim();
-        ArrayList<String> tempList = new ArrayList<>(); // [00:00-00:00]
-        String[] twoTemps = rowTime.split("-");
-        String[] timeOne = twoTemps[0].toString().split(":");
-        String[] timeTwo = twoTemps[1].toString().split(":");
-
-        tempList.add(timeOne[0].trim());
-        tempList.add(timeOne[1].trim());
-        tempList.add(timeTwo[0].trim());
-        tempList.add(timeTwo[1].trim());
-
-        return tempList;
-    }
-
-    /**
-     * Checks if Current time is in the open-library-time-range
-     *
-     * @param tempOpenHour
-     * @param tempOpenMinute
-     * @param tempCloseHour
-     * @param tempCloseMinute
-     * @param currentHour
-     * @param currentMinute
-     * @return
-     */
-    private boolean isOpen(int tempOpenHour, int tempOpenMinute, int tempCloseHour, int tempCloseMinute, int currentHour, int currentMinute) {
-
-        if (currentHour == tempOpenHour) {
-            if (currentMinute >= tempOpenMinute) {
-                return true;
-            } else {
-                return false;
-            }
-
-        } else if (currentHour > tempOpenHour && currentHour <= tempCloseHour) {
-            return true;
-        } else {
-            return false;
-        }
     }
 
     /**

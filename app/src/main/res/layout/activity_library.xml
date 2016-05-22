@@ -35,8 +35,8 @@
         android:layout_below="@+id/editText_library">
 
         <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="182dp"
+            android:layout_height="93dp"
             android:text="Offen"
             android:id="@+id/library_text"
             android:layout_column="3"
@@ -46,7 +46,6 @@
             android:textColor="@color/ostfaliaGreen"
             android:textSize="20dp"
             android:textIsSelectable="false"
-            android:layout_weight="0.40"
             android:paddingTop="10dp" />
 
         <TableLayout

@@ -31,7 +31,7 @@ public class ChooseCampusMaps extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_maps);
             // removes the text in action-bar
-            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(false);// Removes text from the Action bar
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));

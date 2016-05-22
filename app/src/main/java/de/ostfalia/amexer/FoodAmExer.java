@@ -37,7 +37,6 @@ public class FoodAmExer extends AppCompatActivity {
 
 
     /* Activity Objects */
-
     private ImageButton solferinoButton;
     private ImageButton limesButton;
 
@@ -63,10 +62,10 @@ public class FoodAmExer extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_food);
-            actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i(this.getClass().toString(), " action bar");
+            actionBar.setDisplayShowTitleEnabled(false); // Removes text from the Action bar
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
 
         // Initialize Activity Objects

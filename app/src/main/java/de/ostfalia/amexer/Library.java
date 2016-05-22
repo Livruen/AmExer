@@ -1,6 +1,6 @@
 package de.ostfalia.amexer;
 /**
- * This class uses a CSV-File to get the Semester-end-date and Semester-start-date.
+ * This class uses a CSV-File 'semester_data.csv' to get the Semester-end-date and Semester-start-date.
  * After the Activity starts, the CVS-File will be loaded. The class gets the current
  * Date and Time, checks if Today is a workDay or Weekend.
  * If it is weekend The Activity shows a red "Geschlossen".
@@ -63,9 +63,9 @@ public class Library extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_library);
             actionBar.setDisplayShowTitleEnabled(false); // Removes text from the Action bar
-            Log.i("FoodAmMain", " action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i("FoodAmMain", "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
 
         library_text = (TextView) findViewById(R.id.library_text);

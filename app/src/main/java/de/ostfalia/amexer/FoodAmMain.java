@@ -57,10 +57,10 @@ public class FoodAmMain extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_food);
-            actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i(this.getClass().toString(), " action bar");
+            actionBar.setDisplayShowTitleEnabled(false); // Removes text from the Action bar
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
 
         // Initialize Activity Objects
@@ -77,22 +77,22 @@ public class FoodAmMain extends AppCompatActivity {
 
         if(dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY){
 
-            mensaBigText.setText("Wochenende");
+            mensaBigText.setText(R.string.wochenende);
             mensaBigText.setTextColor(Color.YELLOW);
-            mensaSmallText.setText("Wir haben frei");
+            mensaSmallText.setText(R.string.frei);
 
         }else {
 
             int currentHour =  c.get(Calendar.HOUR_OF_DAY);
 
             if(currentHour >= mensaOpenHour && currentHour <= mensaCloseHour){
-                mensaBigText.setText(R.string.open, TextView.BufferType.EDITABLE);
+                mensaBigText.setText( String.valueOf(R.string.open), TextView.BufferType.EDITABLE);
                 mensaBigText.setTextColor(Color.GREEN);
-                mensaSmallText.setText("Offen bis " + mensaCloseHour + ":00");
+                mensaSmallText.setText(R.string.offen_bis + mensaCloseHour + R.string.zero_minute);
             } else {
                 mensaBigText.setText(R.string.closed, TextView.BufferType.EDITABLE);
                 mensaBigText.setTextColor(Color.RED);
-                mensaSmallText.setText("Wir sind sehen uns um " + mensaOpenHour + ":00");
+                mensaSmallText.setText(R.string.wir_sehen_uns + mensaOpenHour + R.string.zero_minute);
             }
         }
 

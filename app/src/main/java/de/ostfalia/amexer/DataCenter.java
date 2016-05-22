@@ -17,10 +17,10 @@ public class DataCenter extends AppCompatActivity {
         if (actionBar != null) {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_data_center);
-            actionBar.setDisplayShowTitleEnabled(false); // entfernt den text von der Action bar
-            Log.i(this.getClass().toString(), " action bar");
+            actionBar.setDisplayShowTitleEnabled(false); // Removes text from the Action bar
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
-            Log.i(this.getClass().toString(), "no action bar");
+            Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));
         }
     }
 }

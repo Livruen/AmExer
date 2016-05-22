@@ -52,7 +52,7 @@ public class MapExer extends AppCompatActivity {
             actionBar.setDisplayShowHomeEnabled(true);
             actionBar.setIcon(R.mipmap.ic_maps);
             // deletes the text from action bar
-            actionBar.setDisplayShowTitleEnabled(false);
+            actionBar.setDisplayShowTitleEnabled(false);// Removes text from the Action bar
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarEnabled));
         } else {
             Log.i(this.getClass().toString(), String.valueOf(R.string.actionBarDisabled));

@@ -48,6 +48,7 @@ public class FoodAmExer extends AppCompatActivity {
     /* Activity Objects */
     private ImageButton solferinoButton;
     private ImageButton limesButton;
+    private EditText solferino;
 
     Context context;
 
@@ -80,8 +81,8 @@ public class FoodAmExer extends AppCompatActivity {
         // Initialize Activity Objects
 
         EditText solferinoBigText = (EditText) findViewById(R.id.solferino_text);
-        EditText solferinoSmallText = (EditText) findViewById(R.id.mensa_time);
-        solferinoButton = (ImageButton) findViewById(R.id.mensa_button);
+        EditText solferinoSmallText = (EditText) findViewById(R.id.solferino_time);
+        solferinoButton = (ImageButton) findViewById(R.id.solferino_button);
 
         EditText limesBigText = (EditText) findViewById(R.id.limes_text);
         EditText limesSmallText = (EditText) findViewById(R.id.limes_time);
@@ -138,6 +139,7 @@ public class FoodAmExer extends AppCompatActivity {
         solferinoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //die url nicht als string speichern!
                 Uri uri = Uri.parse("http://www.kv.drk-kv-wf.de/fileadmin/user_upload/aktuelles/speisepl%C3%A4ne/menu-solferino.pdf");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);

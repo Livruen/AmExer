@@ -75,7 +75,7 @@ public class FoodAmMain extends AppCompatActivity {
         // Initialize Activity Objects
         mensaBigText = (EditText) this.findViewById(R.id.mensa_text);
         mensaSmallText = (EditText) this.findViewById(R.id.mensa_time);
-        mensaButton = (ImageButton) this.findViewById(R.id.mensa_button);
+        mensaButton = (ImageButton) this.findViewById(R.id.solferino_button);
 
         setButtonAction();
 

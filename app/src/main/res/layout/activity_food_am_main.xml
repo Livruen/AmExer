@@ -35,7 +35,7 @@
         android:layout_alignParentEnd="true" />
 
     <EditText
-        android:layout_width="120dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/solferino_state"
         android:focusable="false"
@@ -48,18 +48,18 @@
         android:layout_column="1"
         android:inputType="none"
         android:background="#ffffff"
-        android:layout_alignBottom="@+id/mensa_button"
+        android:layout_alignBottom="@+id/solferino_button"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_alignTop="@+id/mensa_button" />
+        android:layout_alignTop="@+id/solferino_button" />
 
     <ImageButton
-        android:layout_width="135dp"
-        android:layout_height="81dp"
-        android:id="@+id/mensa_button"
-        android:background="@mipmap/ic_mensa"
+        android:layout_width="150dp"
+        android:layout_height="124dp"
+        android:id="@+id/solferino_button"
+        android:background="@mipmap/mensa1"
         android:clickable="true"
         android:layout_column="0"
         android:layout_row="1"
@@ -77,7 +77,7 @@
         android:layout_row="2"
         android:layout_column="1"
         android:text="open till 16:00"
-        android:textSize="12dp"
+        android:textSize="18dp"
         android:inputType="none"
         android:focusable="false"
         android:gravity="center"
@@ -85,7 +85,7 @@
         android:textIsSelectable="false"
         android:background="#ffffff"
         android:layout_alignBottom="@+id/solferino_state"
-        android:layout_toRightOf="@+id/mensa_button"
+        android:layout_toRightOf="@+id/solferino_button"
         android:layout_marginBottom="19dp"
         android:layout_alignRight="@+id/solferino_state"
         android:layout_alignEnd="@+id/solferino_state" />
@@ -98,7 +98,7 @@
         android:gravity="center"
         android:background="#ffffff"
         android:layout_alignTop="@+id/solferino_state"
-        android:layout_toRightOf="@+id/mensa_button"
+        android:layout_toRightOf="@+id/solferino_button"
         android:layout_above="@+id/mensa_time"
         android:layout_alignRight="@+id/solferino_state"
         android:layout_alignEnd="@+id/solferino_state"

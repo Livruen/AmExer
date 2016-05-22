@@ -88,10 +88,10 @@ public class FoodAmExer extends AppCompatActivity {
         if(dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY){
 
             solferinoBigText.setText(R.string.wochenende);
-            solferinoBigText.setTextColor(Color.YELLOW);
+            solferinoBigText.setTextColor(Color.BLUE);
             solferinoSmallText.setText(R.string.frei);
             limesBigText.setText(R.string.wochenende);
-            limesBigText.setTextColor(Color.YELLOW);
+            limesBigText.setTextColor(Color.BLUE);
             limesSmallText.setText(R.string.frei);
 
         }else {

@@ -78,7 +78,7 @@ public class FoodAmMain extends AppCompatActivity {
         if(dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY){
 
             mensaBigText.setText(R.string.wochenende);
-            mensaBigText.setTextColor(Color.YELLOW);
+            mensaBigText.setTextColor(Color.BLUE);
             mensaSmallText.setText(R.string.frei);
 
         }else {

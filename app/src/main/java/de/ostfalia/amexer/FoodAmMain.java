@@ -1,5 +1,14 @@
 package de.ostfalia.amexer;
-
+/**
+ * This class uses a CSV-File 'mensa_data.csv' to get the open and close time from the Mensa.
+ * After the Activity starts, the CVS-File will be loaded. The class gets the current
+ * Date and Time, checks if Today is a workDay or Weekend.
+ * If it is weekend The Activity shows a red "Geschlossen".
+ * The class compares the mensa open and close time with the current time.
+ * If current time is in Time-Range the library is "OFFEN" else "GRESCHLOSSEN"
+ *
+ * @autor Natasza Szczypien
+ */
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -42,7 +51,7 @@ public class FoodAmMain extends AppCompatActivity {
         InputStream iS = null;
         // Reads CSV
         try {
-            iS = this.getAssets().open("mensa_data.csv");
+            iS = this.getAssets().open(getString(R.string.mensa_csv));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -105,7 +114,7 @@ public class FoodAmMain extends AppCompatActivity {
         mensaButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Uri uri = Uri.parse("http://www.stw-on.de/wolfenbuettel/essen/menus/mensa-ostfalia");
+                Uri uri = Uri.parse(getString(R.string.mensa_url));
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
             }

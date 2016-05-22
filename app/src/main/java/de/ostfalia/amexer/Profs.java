@@ -4,7 +4,12 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-
+/**
+ * the class shows an image on the actionbar
+ *
+ *
+ * @autor Natasza Szczypien
+ */
 public class Profs extends AppCompatActivity {
 
     @Override

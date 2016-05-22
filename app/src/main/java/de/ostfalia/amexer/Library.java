@@ -47,7 +47,7 @@ public class Library extends AppCompatActivity {
         InputStream iS = null;
         // Reads CSV
         try {
-            iS = this.getAssets().open("semester_data.csv");
+            iS = this.getAssets().open(getString(R.string.library_csv));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -88,6 +88,7 @@ public class Library extends AppCompatActivity {
 
     /**
      * sets the Availibility text on the screen
+     *
      * @param year
      * @param month
      * @param day
@@ -98,81 +99,85 @@ public class Library extends AppCompatActivity {
      */
     private boolean setAvailibility(int year, int month, int day, int dayType, int currentHour, int currentMinute) {
 
-        if(dayType == Calendar.SATURDAY || dayType == Calendar.SUNDAY){
+        if (dayType == Calendar.SATURDAY || dayType == Calendar.SUNDAY) {
 
-                library_text.setText("GESCHLOSSEN");
-                library_text.setTextColor(Color.RED);
-                return true;
+            library_text.setText(R.string.closed);
+            library_text.setTextColor(Color.RED);
+            return true;
 
         }
         TextView dayRow;
         String rowTime = "";
 
-        if (isSemester(year, month, day)) {
-            // Using the time from Semester Table
-            switch (dayType) {
-                case Calendar.MONDAY:
-                    dayRow = (TextView) findViewById(R.id.Mo_Se);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.TUESDAY:
-                    dayRow = (TextView) findViewById(R.id.Tue_Se);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.WEDNESDAY:
-                    dayRow = (TextView) findViewById(R.id.We_Se);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.THURSDAY:
-                    dayRow = (TextView) findViewById(R.id.Thu_Se);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.FRIDAY:
-                    dayRow = (TextView) findViewById(R.id.Fr_Se);
-                    rowTime = dayRow.getText().toString();
-                    break;
+        try {
+            if (isSemester(year, month, day)) {
+                // Using the time from Semester Table
+                switch (dayType) {
+                    case Calendar.MONDAY:
+                        dayRow = (TextView) findViewById(R.id.Mo_Se);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.TUESDAY:
+                        dayRow = (TextView) findViewById(R.id.Tue_Se);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.WEDNESDAY:
+                        dayRow = (TextView) findViewById(R.id.We_Se);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.THURSDAY:
+                        dayRow = (TextView) findViewById(R.id.Thu_Se);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.FRIDAY:
+                        dayRow = (TextView) findViewById(R.id.Fr_Se);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                }
+
+            } else { // Semester-free-time
+                switch (dayType) {
+
+                    case Calendar.MONDAY:
+                        dayRow = (TextView) findViewById(R.id.Mo_Vf);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.TUESDAY:
+                        dayRow = (TextView) findViewById(R.id.Tue_Vf);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.WEDNESDAY:
+                        dayRow = (TextView) findViewById(R.id.We_Vf);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.THURSDAY:
+                        dayRow = (TextView) findViewById(R.id.Thu_Vf);
+                        rowTime = dayRow.getText().toString();
+                        break;
+                    case Calendar.FRIDAY:
+                        dayRow = (TextView) findViewById(R.id.Fr_Vf);
+                        rowTime = dayRow.getText().toString();
+                        break;
+
+                }
+
             }
-
-        } else { // Semester-free-time
-            switch (dayType) {
-
-                case Calendar.MONDAY:
-                    dayRow = (TextView) findViewById(R.id.Mo_Vf);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.TUESDAY:
-                    dayRow = (TextView) findViewById(R.id.Tue_Vf);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.WEDNESDAY:
-                    dayRow = (TextView) findViewById(R.id.We_Vf);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.THURSDAY:
-                    dayRow = (TextView) findViewById(R.id.Thu_Vf);
-                    rowTime = dayRow.getText().toString();
-                    break;
-                case Calendar.FRIDAY:
-                    dayRow = (TextView) findViewById(R.id.Fr_Vf);
-                    rowTime = dayRow.getText().toString();
-                    break;
-
-            }
-
+        } catch (NullPointerException e) {
+            e.printStackTrace();
         }
 
-        /* Prepares the current library open-time-range*/
-        ArrayList<String> openHours = prepareTime(rowTime);
+        /* Prepares the current library open-time-range  */
+        ArrayList<String> openHours = prepareTime(rowTime); // [openHour, openMinute, closeHour, closeMinute]
         int tempOpenHour = Integer.parseInt(openHours.get(0));
         int tempOpenMinute = Integer.parseInt(openHours.get(1));
         int tempCloseHour = Integer.parseInt(openHours.get(2));
         int tempCloseMinute = Integer.parseInt(openHours.get(3));
 
         if (isOpen(tempOpenHour, tempOpenMinute, tempCloseHour, tempCloseMinute, currentHour, currentMinute)) {
-            library_text.setText("Offen");
+            library_text.setText(R.string.open);
             library_text.setTextColor(Color.GREEN);
         } else {
-            library_text.setText("Geschlossen");
+            library_text.setText(R.string.closed);
             library_text.setTextColor(Color.RED);
         }
         return true;
@@ -181,14 +186,14 @@ public class Library extends AppCompatActivity {
     /**
      * Gets the TODAYs open-time-range from the Opening-time-table in
      * activity_library
+     *
      * @param rowTime
      * @return list with times in String
      */
     private ArrayList<String> prepareTime(String rowTime) {
 
         rowTime = rowTime.trim();
-        ArrayList<String> tempList = new ArrayList<>();
-
+        ArrayList<String> tempList = new ArrayList<>(); // [00:00-00:00]
         String[] twoTemps = rowTime.split("-");
         String[] timeOne = twoTemps[0].toString().split(":");
         String[] timeTwo = twoTemps[1].toString().split(":");
@@ -200,11 +205,10 @@ public class Library extends AppCompatActivity {
 
         return tempList;
     }
-/** ---------------------------
- *           QUESTIONS
- *  ---------------------------/
+
     /**
      * Checks if Current time is in the open-library-time-range
+     *
      * @param tempOpenHour
      * @param tempOpenMinute
      * @param tempCloseHour
@@ -229,7 +233,14 @@ public class Library extends AppCompatActivity {
         }
     }
 
-
+    /**
+     * Checks if the the current date is in semester time
+     *
+     * @param year
+     * @param month
+     * @param day
+     * @return
+     */
     private boolean isSemester(int year, int month, int day) {
         return (semesterStart.get(Calendar.YEAR) == year) && (month >= semesterStart.get(Calendar.MONTH) && month <= semesterEnde.get(Calendar.MONTH)) && (month >= semesterStart.get(Calendar.DATE) && month <= semesterEnde.get(Calendar.DATE));
     }
@@ -250,7 +261,6 @@ public class Library extends AppCompatActivity {
 
             Calendar date = new GregorianCalendar(year, month, day);
             dates.add(date);
-
         }
 
         semesterStart = dates.get(0);

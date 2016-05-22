@@ -1,14 +1,13 @@
 <resources>
     <string name="app_name">AmExer</string>
 
+    <!--   ......................... CAMPUSES ......................... -->
+
     <string name="gebaudeExer">Gebäude am Exer:</string>
     <string name="gebaudeSalzdahlumer">Gebäude an der Salzdahlumer:</string>
 
-    <string name="open">Offen</string>
-    <string name="closed">Geschlossen</string>
 
-    <string name="close">Schließen</string>
-
+    <!--   ......................... ACTIVITY SUBNAMES ......................... -->
     <string name="afterSchool">Freizeit</string>
     <string name="amExer">Am Exer</string>
     <string name="anDerSalzdahlumer">An der Salzdahlumer</string>
@@ -23,22 +22,49 @@
     <string name="profs">Professoren</string>
     <string name="sports">Sportkurse</string>
 
+    <!--   ......................... AFTER SCHOOL ......................... -->
     <string name="bars">Kneipen</string>
     <string name="clubs">Clubs</string>
     <string name="restaurants">Restaurants</string>
 
-    <string name="solferino">Solferino</string>
-    <string name="limes">Limes</string>
-    <string name="mensa">Mensa</string>
 
+
+    <!--   ......................... FOOD ......................... -->
+   <!-- Mensa -->
+    <string name="mensa">Mensa</string>
+    <string name="mensa_url">http://www.stw-on.de/wolfenbuettel/essen/menus/mensa-ostfalia</string>
+    <string name="mensa_csv">mensa_data.csv</string>
+
+    <!-- Solferino -->
+    <string name="solferino">Solferino</string>
+    <string name="solferino_limes_csv">solferino_limes_data.csv</string>
+
+
+    <!-- Limes -->
+    <string name="limes">Limes</string>
+    <string name="limes_url">http://limes.dragosardo.de</string>
+
+
+
+    <!--   ......................... MAP ......................... -->
     <string name="exerMap">KarteExer</string>
     <string name="salzdahlumerMap">KarteSalzdahlumer</string>
+
+    <string name="actionBarEnabled">actionBarEnabled</string>
+    <string name="actionBarDisabled">actionBarDisabled</string>
+
+    <!--   ......................... OPEN CLOSE  ......................... -->
     <string name="wochenende">Wochenende</string>
     <string name="frei">Wir haben frei</string>
     <string name="offen_bis">"Offen bis "</string>
     <string name="wir_sehen_uns">"Wir sind sehen uns um "</string>
     <string name="zero_minute">:00</string>
+    <string name="open">Offen</string>
+    <string name="closed">Geschlossen</string>
+    <string name="close">Schließen</string>
 
-    <string name="actionBarEnabled">actionBarEnabled</string>
-    <string name="actionBarDisabled">actionBarDisabled</string>
+    <!--   ......................... LIBRARY  ......................... -->
+    <string name="library_csv">semester_data.csv</string>
+
+
 </resources>

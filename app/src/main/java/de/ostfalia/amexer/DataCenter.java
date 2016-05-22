@@ -52,7 +52,7 @@ public class DataCenter extends AppCompatActivity {
         //Get current Time and date
         Calendar c = Calendar.getInstance();
 
-        int currentHour = 14;//c.get(Calendar.HOUR_OF_DAY);
+        int currentHour = c.get(Calendar.HOUR_OF_DAY);
         int currentMinute = c.get(Calendar.MINUTE);
 
         int year = c.get(Calendar.YEAR);
@@ -85,10 +85,10 @@ public class DataCenter extends AppCompatActivity {
 
         } else {
 
-            // Row in table, in first collumn
+            // Row in table, in first column
             TextView dayRow1;
             String rowTime1 = "";
-            // Row in table, in second collumn
+            // Row in table, in second column
             TextView dayRow2;
             String rowTime2 = "";
             TableHelper tableHelper = new TableHelper();
@@ -135,12 +135,13 @@ public class DataCenter extends AppCompatActivity {
             ArrayList<Integer> openHours1 = tableHelper.prepareTime(rowTime1); // [openHour, openMinute, closeHour, closeMinute]
             ArrayList<Integer> openHours2 = tableHelper.prepareTime(rowTime2); // [openHour, openMinute, closeHour, closeMinute]
 
-            //First collumn from row
+            //First column from row
             int tempOpenHour1 = openHours1.get(0);
             int tempOpenMinute1 = openHours1.get(1);
             int tempCloseHour1 = openHours1.get(2);
             int tempCloseMinute1 = openHours1.get(3);
-            //Second collumn from row
+
+            //Second column from row
             int tempOpenHour2 = openHours2.get(0);
             int tempOpenMinute2 = openHours2.get(1);
             int tempCloseHour2 = openHours2.get(2);

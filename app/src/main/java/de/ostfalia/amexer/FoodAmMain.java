@@ -103,13 +103,13 @@ public class FoodAmMain extends AppCompatActivity {
             int currentHour =  c.get(Calendar.HOUR_OF_DAY);
 
             if(currentHour >= mensaOpenHour && currentHour <= mensaCloseHour){
-                mensaBigText.setText( String.valueOf(R.string.open), TextView.BufferType.EDITABLE);
+                mensaBigText.setText( getString(R.string.open), TextView.BufferType.EDITABLE);
                 mensaBigText.setTextColor(Color.GREEN);
-                mensaSmallText.setText(R.string.offen_bis + mensaCloseHour + R.string.zero_minute);
+                mensaSmallText.setText(getString(R.string.offen_bis) + mensaCloseHour + getString(R.string.zero_minute));
             } else {
-                mensaBigText.setText(R.string.closed, TextView.BufferType.EDITABLE);
+                mensaBigText.setText(getString(R.string.closed), TextView.BufferType.EDITABLE);
                 mensaBigText.setTextColor(Color.RED);
-                mensaSmallText.setText(R.string.wir_sehen_uns + mensaOpenHour + R.string.zero_minute);
+                mensaSmallText.setText(getString(R.string.wir_sehen_uns) + mensaOpenHour + getString(R.string.zero_minute));
             }
         }
     }

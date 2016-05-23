@@ -7,6 +7,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
 
+/**
+ * Activity with buttons for App-categories
+ * By clicking a button it shows a new activity
+ * @author Lina Tacke
+ */
 public class AmExer extends AppCompatActivity {
 
     private ImageButton food_button;
@@ -33,6 +38,9 @@ public class AmExer extends AppCompatActivity {
         setActions();
     }
 
+    /**
+     * Initialize buttons
+     */
     private void initActivityObjects() {
         food_button = (ImageButton) findViewById(R.id.food_button);
         maps_button = (ImageButton) findViewById(R.id.maps_button);
@@ -45,6 +53,9 @@ public class AmExer extends AppCompatActivity {
         profs_button = (ImageButton) findViewById(R.id.profs_button);
     }
 
+    /**
+     * Set actions on buttons
+     */
     public void setActions() {
 
         food_button.setOnClickListener(new View.OnClickListener() {

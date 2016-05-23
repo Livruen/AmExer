@@ -20,6 +20,11 @@ import java.util.List;
 
 import de.ostfalia.amexer.entries.CSVReader;
 
+/**
+ * Activity for showing a map of the salzdahlumer-campus
+ * By clicking the map it shows a popup with informations of the map
+ * @author Lina Tacke
+ */
 public class MapSalzdahlumer extends AppCompatActivity {
     private ImageView imageViewMapSalzdahlumer;
     private InputStream inputStream;
@@ -66,6 +71,9 @@ public class MapSalzdahlumer extends AppCompatActivity {
         }
     }
 
+    /**
+     * Sets the Action on the Map (it shows a PopUp with informations of the map)
+     */
     private void setActions() {
         imageViewMapSalzdahlumer.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,6 +83,9 @@ public class MapSalzdahlumer extends AppCompatActivity {
         });
     }
 
+    /**
+     * pens a popup with a list with informations Sets the Action on the Map
+     */
     private void showList() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setIcon(R.mipmap.ic_maps);

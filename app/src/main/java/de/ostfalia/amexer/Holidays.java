@@ -21,6 +21,8 @@ import de.ostfalia.amexer.entries.CSVReader;
 
 /**
  * Activity for holidays-buttons
+ *
+ * @author Lina Tacke
  */
 public class Holidays extends AppCompatActivity {
     private List<String> holidaysList;
@@ -77,13 +79,11 @@ public class Holidays extends AppCompatActivity {
 
             TextView name = new TextView(this);
             name.setBackground(getDrawable(R.drawable.cell_shape));
-            name.setLayoutParams(lp);
             name.setPadding(10, 10, 10, 10);
             name.setGravity(Gravity.LEFT);
 
             TextView date = new TextView(this);
             date.setBackground(getDrawable(R.drawable.cell_shape));
-            date.setLayoutParams(lp);
             date.setPadding(10, 10, 10, 10);
             date.setGravity(Gravity.CENTER_HORIZONTAL);
 

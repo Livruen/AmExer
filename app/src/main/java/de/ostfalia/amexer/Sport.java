@@ -21,6 +21,7 @@ import de.ostfalia.amexer.entries.CSVReader;
 /**
  * Activity for showing the sportcourses from ostfalia in a ListView
  * By clicking an element (sportcourse) the browser will be startet with the e-filling
+ * @author Lina Tacke
  */
 public class Sport extends AppCompatActivity {
     private ListView sportsListView;

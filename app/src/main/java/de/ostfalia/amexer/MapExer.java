@@ -22,6 +22,8 @@ import de.ostfalia.amexer.entries.CSVReader;
 
 /**
  * Activity for showing a map of the exercampus
+ * By clicking the map it shows a popup with informations of the map
+ * @author Lina Tacke
  */
 public class MapExer extends AppCompatActivity {
     private ImageView imageViewMapExer;
@@ -71,7 +73,7 @@ public class MapExer extends AppCompatActivity {
     }
 
     /**
-     * Sets the action by clicking image (popup with info)
+     * Sets the Action on the Map (it shows a PopUp with informations of the map)
      */
     private void setActions() {
         imageViewMapExer.setOnClickListener(new View.OnClickListener() {
@@ -83,7 +85,7 @@ public class MapExer extends AppCompatActivity {
     }
 
     /**
-     * Opens a popup with a list with informations
+     * Opens a popup with a list with informations of the map
      */
     private void showList() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);

@@ -11,7 +11,10 @@ import android.widget.Button;
 
 /**
  * Activity for afterschool-buttons
- */
+ * It show three buttons (bars, clubs, restaurants).
+ * By clicking it opens a google-Map in browser or Google-Maps-App
+ * @author Lina Tacke
+*/
 public class AfterSchool extends AppCompatActivity {
     private Button btnPubs;
     private Button btnClubs;

@@ -20,8 +20,10 @@ import java.util.List;
 import de.ostfalia.amexer.entries.CSVReader;
 
 /**
- * Activity for holidays-buttons
- *
+ * Activity for holidays-table
+ * Shows the holidays in a table
+ * Shows if today is a holiday or not
+ * The class gets the sportcourses form the sports.data.csv
  * @author Lina Tacke
  */
 public class Holidays extends AppCompatActivity {

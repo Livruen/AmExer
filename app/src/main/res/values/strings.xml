@@ -1,57 +1,11 @@
 <resources>
     <string name="app_name">AmExer</string>
 
-    <!--   ......................... CAMPUSES ......................... -->
 
-    <string name="gebaudeExer">Gebäude am Exer:</string>
-    <string name="gebaudeSalzdahlumer">Gebäude an der Salzdahlumer:</string>
-
-
-    <!--   ......................... ACTIVITY SUBNAMES ......................... -->
-    <string name="afterSchool">Freizeit</string>
-    <string name="amExer">Am Exer</string>
-    <string name="anDerSalzdahlumer">An der Salzdahlumer</string>
-    <string name="campusExer">Campus am Exer</string>
-    <string name="campusSalzdahlumer">Campus Salzdahlumer</string>
-    <string name="dataCenter">Rechenzentrum</string>
-    <string name="food">Essen</string>
-    <string name="holidays">Vorlesungsfreie Zeiten</string>
-    <string name="library">Bibliothek</string>
-    <string name="maps">Karten</string>
-    <string name="offices">Ämter und Büros</string>
-    <string name="profs">Professoren</string>
-    <string name="sports">Sportkurse</string>
-
-    <!--   ......................... AFTER SCHOOL ......................... -->
-    <string name="bars">Kneipen</string>
-    <string name="clubs">Clubs</string>
-    <string name="restaurants">Restaurants</string>
-
-
-
-    <!--   ......................... FOOD ......................... -->
-   <!-- Mensa -->
-    <string name="mensa">Mensa</string>
-    <string name="mensa_url">http://www.stw-on.de/wolfenbuettel/essen/menus/mensa-ostfalia</string>
-    <string name="mensa_csv">mensa_data.csv</string>
-
-    <!-- Solferino -->
-    <string name="solferino">Solferino</string>
-    <string name="solferino_limes_csv">solferino_limes_data.csv</string>
-
-
-    <!-- Limes -->
-    <string name="limes">Limes</string>
-    <string name="limes_url">http://limes.dragosardo.de</string>
-
-
-
-    <!--   ......................... MAP ......................... -->
-    <string name="exerMap">KarteExer</string>
-    <string name="salzdahlumerMap">KarteSalzdahlumer</string>
-
+    <!--   ......................... LOG STRINGS ......................... -->
     <string name="actionBarEnabled">actionBarEnabled</string>
     <string name="actionBarDisabled">actionBarDisabled</string>
+
 
     <!--   ......................... OPEN CLOSE  ......................... -->
     <string name="wochenende">Wochenende</string>
@@ -63,8 +17,63 @@
     <string name="closed">Geschlossen</string>
     <string name="close">Schließen</string>
 
+
+    <!--   ......................... ACTIVITY SUBNAMES ......................... -->
+    <string name="afterSchool">Freizeit</string>
+    <string name="dataCenter">Rechenzentrum</string>
+    <string name="food">Essen</string>
+    <string name="holidays">Vorlesungsfreie Zeiten</string>
+    <string name="library">Bibliothek</string>
+    <string name="maps">Karten</string>
+    <string name="offices">Ämter und Büros</string>
+    <string name="profs">Professoren</string>
+    <string name="sports">Sportkurse</string>
+
+
+    <!--   ......................... AFTER SCHOOL ......................... -->
+    <string name="bars">Kneipen</string>
+    <string name="clubs">Clubs</string>
+    <string name="restaurants">Restaurants</string>
+
+
+    <!--   ......................... FOOD ......................... -->
+    <!-- Mensa -->
+    <string name="mensa">Mensa</string>
+    <string name="mensa_url">http://www.stw-on.de/wolfenbuettel/essen/menus/mensa-ostfalia</string>
+    <string name="mensa_csv">mensa_data.csv</string>
+
+    <!-- Solferino -->
+    <string name="solferino">Solferino</string>
+    <string name="solferino_limes_csv">solferino_limes_data.csv</string>
+
+    <!-- Limes -->
+    <string name="limes">Limes</string>
+    <string name="limes_url">http://limes.dragosardo.de</string>
+
+
+    <!--   ......................... MAPS ......................... -->
+    <string name="exerMap">KarteExer</string>
+    <string name="salzdahlumerMap">KarteSalzdahlumer</string>
+
+    <string name="gebaudeExer">Gebäude am Exer:</string>
+    <string name="gebaudeSalzdahlumer">Gebäude an der Salzdahlumer:</string>
+
+
     <!--   ......................... LIBRARY  ......................... -->
     <string name="library_csv">semester_data.csv</string>
 
+
+    <!--   ......................... HOLIDAYS  ......................... -->
+    <string name="semesterBreak">Vorlesungsfrei</string>
+    <string name="lectureTime">Vorlesungen finden statt</string>
+    <string name="holiday">Feiertag</string>
+    <string name="date">Datum</string>
+
+
+    <!--   ......................... CAMPUSES  ......................... -->
+    <string name="amExer">Am Exer</string>
+    <string name="anDerSalzdahlumer">An der Salzdahlumer</string>
+    <string name="campusExer">Campus am Exer</string>
+    <string name="campusSalzdahlumer">Campus Salzdahlumer</string>
 
 </resources>

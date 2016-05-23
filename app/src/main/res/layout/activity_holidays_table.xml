@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/editText"
+        android:background="@color/wolfenbuettelBlue"
+        android:text="@string/holidays"
+        android:focusable="false"
+        android:textColor="#ffffff"
+        android:inputType="none"
+        android:gravity="center"
+        android:layout_gravity="left|top"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/editText"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/lectureTime"
+            android:id="@+id/textView_holiday_free"
+            android:gravity="center"
+            android:background="@drawable/cell_shape"
+            android:textColor="@color/ostfaliaRed"
+            android:textSize="20sp"
+            android:textIsSelectable="true"
+            android:paddingTop="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:paddingBottom="10dp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/table_holidays"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:baselineAligned="false"
+                android:measureWithLargestChild="true">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/textView_holidays"
+                    android:layout_column="0"
+                    android:gravity="center"
+                    android:background="@drawable/cell_shape"
+                    android:height="30dp"
+                    android:text="@string/holiday"
+                    android:textStyle="bold"
+                    android:padding="5dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date"
+                    android:id="@+id/textView_date"
+                    android:layout_column="1"
+                    android:background="@drawable/cell_shape"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:height="30dp"
+                    android:padding="5dp" />
+
+            </TableRow>
+
+        </TableLayout>
+    </LinearLayout>
+
+</RelativeLayout>

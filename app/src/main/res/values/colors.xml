@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#000000</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="white">#FFFFFF</color>
+
     <color name="backgroundOstfalia">#ecedf4</color>
     <color name="wolfenbuettelBlue">#009EE0</color>
     <color name="ostfaliaBlue">#003A79</color>

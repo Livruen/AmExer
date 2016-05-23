@@ -1,15 +1,20 @@
 package de.ostfalia.amexer;
 
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
+import android.view.Gravity;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 import de.ostfalia.amexer.entries.CSVReader;
@@ -18,7 +23,11 @@ import de.ostfalia.amexer.entries.CSVReader;
  * Activity for holidays-buttons
  */
 public class Holidays extends AppCompatActivity {
+    private List<String> holidaysList;
     private InputStream inputStream;
+    private TextView textViewHoliday;
+    private TableLayout table;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,10 +38,15 @@ public class Holidays extends AppCompatActivity {
             e.printStackTrace();
         }
 
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_holidays);
+        holidaysList = new ArrayList<>(new CSVReader(inputStream).getData());
 
-        fillList();
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_holidays_table);
+
+        textViewHoliday = (TextView) findViewById(R.id.textView_holiday_free);
+        table = (TableLayout) findViewById(R.id.table_holidays);
+
+        fillTable();
 
         //Puts an Image to the Action Bar
         ActionBar actionBar = getSupportActionBar();
@@ -48,20 +62,92 @@ public class Holidays extends AppCompatActivity {
     }
 
     /**
-     * Fills the list with data
+     * Fills the table with data
      */
-    private void fillList() {
-        List<String> holidaysList = new ArrayList<>(new CSVReader(inputStream).getData());
+    private void fillTable() {
+        for (String str : holidaysList){
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 30);
 
-        ArrayAdapter<String> holidayslistAdapter = new ArrayAdapter<>(
-                this,                               // This activity
-                R.layout.list_item_holidayslist,    // ID from XML-Layout-Data
-                R.id.item_list_textview_holidays,   // ID from TextViews
-                holidaysList);
+            TableRow rowHoliday = new TableRow(this);
+            rowHoliday.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
+            rowHoliday.setLayoutParams(lp);
+            rowHoliday.setGravity(Gravity.CENTER_VERTICAL);
+            rowHoliday.setGravity(Gravity.CENTER_HORIZONTAL);
+            rowHoliday.setMinimumHeight(30);
 
-        ListView holidayslistListView = (ListView) this.findViewById(R.id.holidayListView);
-        assert holidayslistListView != null;
-        holidayslistListView.setAdapter(holidayslistAdapter);
-        holidayslistAdapter.notifyDataSetChanged();
+            TextView name = new TextView(this);
+            name.setBackground(getDrawable(R.drawable.cell_shape));
+            name.setLayoutParams(lp);
+            name.setPadding(10, 10, 10, 10);
+            name.setGravity(Gravity.LEFT);
+
+            TextView date = new TextView(this);
+            date.setBackground(getDrawable(R.drawable.cell_shape));
+            date.setLayoutParams(lp);
+            date.setPadding(10, 10, 10, 10);
+            date.setGravity(Gravity.CENTER_HORIZONTAL);
+
+            String[] split = str.split(",");
+            name.setText(split[0]);
+            date.setText(split[1]);
+
+            rowHoliday.addView(name);
+            rowHoliday.addView(date);
+            table.addView(rowHoliday);
+        }
+
+        checkHolidays();
+    }
+
+    /**
+     * Checks if it's a holiday or not
+     */
+    private void checkHolidays() {
+        Calendar today = new GregorianCalendar(Calendar.YEAR, Calendar.MONTH, Calendar.DATE);
+
+        for (String holiday : holidaysList){
+            Calendar startDate;
+            Calendar endDate = null;
+
+            //Gets date in format "DD.MM.YYYY" or "DD.MM.YYYY-DD.MM.YYYY"
+            String holidayDate = holiday.split(",")[1];
+
+            if(holidayDate.contains("-")){
+                //Holiday longer than 1 day
+                String startTime = holidayDate.split("-")[0];
+                String endTime = holidayDate.split("-")[1];
+
+                int startDay =  Integer.parseInt(startTime.split("\\.")[0]);
+                int startMonth = Integer.parseInt(startTime.split("\\.")[1]);
+                int startYear = Integer.parseInt(startTime.split("\\.")[2]);
+                int endDay = Integer.parseInt(endTime.split("\\.")[0]);
+                int endMonth = Integer.parseInt(endTime.split("\\.")[1]);
+                int endYear = Integer.parseInt(endTime.split("\\.")[2]);
+
+                startDate = new GregorianCalendar(startYear, startMonth-1, startDay);        // month begins with 0
+                endDate = new GregorianCalendar(endYear, endMonth-1, endDay);                // month begins with 0
+            }else{
+                //Holiday with 1 day
+                int startDay = Integer.parseInt(holidayDate.split("\\.")[0]);
+                int startMonth = Integer.parseInt(holidayDate.split("\\.")[1]);
+                int startYear = Integer.parseInt(holidayDate.split("\\.")[2]);
+
+                startDate = new GregorianCalendar(startYear, startMonth-1, startDay);        // month begins with 0
+            }
+
+            if (endDate == null){
+                //One day
+                if(today.equals(startDate)){
+                    textViewHoliday.setText(R.string.semesterBreak);
+                    textViewHoliday.setTextColor(ContextCompat.getColor(this, R.color.ostfaliaGreen));
+                }
+            }else{
+                // More than one day (checks if today is startDate, endDate or between these dates)
+                if(today.after(startDate) && today.before(endDate) || today.equals(startDate) || today.equals(endDate)){
+                    textViewHoliday.setText(R.string.semesterBreak);
+                    textViewHoliday.setTextColor(ContextCompat.getColor(this, R.color.ostfaliaGreen));
+                }
+            }
+        }
     }
 }

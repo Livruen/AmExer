@@ -1,14 +1,4 @@
 package de.ostfalia.amexer;
-/**
- * This class uses a CSV-File 'solferino_limes_data.csv' to get the open and close time from the Mensa.
- * After the Activity starts, the CVS-File will be loaded. The class gets the current
- * Date and Time, checks if Today is a workDay or Weekend.
- * If it is weekend The Activity shows a red "Geschlossen".
- * The class compares the mensa open and close time with the current time.
- * If current time is in Time-Range the library is "OFFEN" else "GRESCHLOSSEN"
- *
- * @autor Natasza Szczypien
- */
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -28,7 +18,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import de.ostfalia.amexer.entries.CSVReader;
-
+/**
+ * This class uses a CSV-File 'solferino_limes_data.csv' to get the open and close time from the Mensa.
+ * After the Activity starts, the CVS-File will be loaded. The class gets the current
+ * Date and Time, checks if Today is a workDay or Weekend.
+ * If it is weekend The Activity shows a red "Geschlossen".
+ * The class compares the mensa open and close time with the current time.
+ * If current time is in Time-Range the library is "OFFEN" else "GRESCHLOSSEN"
+ *
+ * @autor Natasza Szczypien
+ */
 public class FoodAmExer extends AppCompatActivity {
 
     /*Constants tells the line index in the CSV */

@@ -1,11 +1,4 @@
 package de.ostfalia.amexer;
-/**
- * the class generates an action after pressing a button from offices_activity
- * and reference every button to a different website from Ostfalia.de
- *
- *
- * @autor Natasza Szczypien
- */
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -15,7 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * the class generates an action after pressing a button from offices_activity
+ * and reference every button to a different website from Ostfalia.de
+ *
+ *
+ * @author Natasza Szczypien
+ */
 
 public class Offices extends AppCompatActivity {
 

@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -75,7 +76,7 @@ public class Profs extends AppCompatActivity {
         profslistAdapter.notifyDataSetChanged();
     }
 
-   /**
+    /**
      * Opens a telephone number by clicking on list-item(Prof)
      */
     private void setActions() {

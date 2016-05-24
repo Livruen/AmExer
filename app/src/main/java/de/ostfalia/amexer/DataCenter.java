@@ -1,14 +1,4 @@
 package de.ostfalia.amexer;
-/**
- * The class gets the current
- * Date and Time, checks if Today is a workDay or Weekend.
- * If it is weekend The Activity shows a red "Geschlossen".
- * The class gets from the activity_data_center_xml (from the Table) information about
- * the open-time-range for TODAY and compares it with the current time.
- * If current time is in Time-Range the library is "OFFEN" else "GRESCHLOSSEN"
- *
- * @autor Natasza Szczypien
- */
 import android.content.Context;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
@@ -21,7 +11,16 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import de.ostfalia.amexer.entries.TableHelper;
-
+/**
+ * The class gets the current
+ * Date and Time, checks if Today is a workDay or Weekend.
+ * If it is weekend The Activity shows a red "Geschlossen".
+ * The class gets from the activity_data_center_xml (from the Table) information about
+ * the open-time-range for TODAY and compares it with the current time.
+ * If current time is in Time-Range the library is "OFFEN" else "GRESCHLOSSEN"
+ *
+ * @autor Natasza Szczypien
+ */
 public class DataCenter extends AppCompatActivity {
 
     /* Activity-text that says if library is "OFFEN" or "GESCHLOSSEN" */

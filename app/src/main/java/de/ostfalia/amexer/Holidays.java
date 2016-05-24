@@ -70,25 +70,21 @@ public class Holidays extends AppCompatActivity {
      */
     private void fillTable() {
         for (String str : holidaysList){
-            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT, TableRow.LayoutParams.WRAP_CONTENT, 0.5f);
+            TableRow.LayoutParams lp = new TableRow.LayoutParams(TableRow.LayoutParams.MATCH_PARENT, TableRow.LayoutParams.MATCH_PARENT, 0.5f);
 
             TableRow rowHoliday = new TableRow(this);
             rowHoliday.setBackgroundColor(ContextCompat.getColor(this, R.color.white));
-            //rowHoliday.setLayoutParams(lp);
             rowHoliday.setGravity(Gravity.CENTER_VERTICAL);
             rowHoliday.setGravity(Gravity.CENTER_HORIZONTAL);
-            //rowHoliday.setMinimumHeight(30);
 
             TextView name = new TextView(this);
             name.setBackground(getDrawable(R.drawable.cell_shape));
             name.setGravity(Gravity.CENTER_HORIZONTAL);
-            name.setPadding(10,10,10,10);
             name.setLayoutParams(lp);
 
             TextView date = new TextView(this);
             date.setBackground(getDrawable(R.drawable.cell_shape));
             date.setGravity(Gravity.CENTER_HORIZONTAL);
-            date.setPadding(10,10,10,10);
             date.setLayoutParams(lp);
 
             String[] split = str.split(",");

@@ -1,9 +1,4 @@
 package de.ostfalia.amexer;
-/**
- * the class generates an action after pressing a button in Choose Campus aktivity
- * and reference the buttons to activity_food_am_exer or activity_food_am_main
- * @autor Natasza Szczypien
- */
 import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -11,7 +6,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * the class generates an action after pressing a button in Choose Campus aktivity
+ * and reference the buttons to activity_food_am_exer or activity_food_am_main
+ * @autor Natasza Szczypien
+ */
 public class ChooseCampus extends AppCompatActivity {
 
     private Button campusMain;

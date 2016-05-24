@@ -2,12 +2,12 @@ package de.ostfalia.amexer.entries;
 
 import java.util.ArrayList;
 /**
- * The class is a helepr class for Data center and library activity.
+ * The class is a helper class for Data center and library activity.
  * It parses the string times from the tables into a int array with the times.
  * It checks also if current time is in opening time range from the library
  *  or data center .
  *
- * @autor Natasza Szczypien
+ * @author Natasza Szczypien
  * Created by livruen on 22.05.16.
  */
 
@@ -23,8 +23,8 @@ public class TableHelper {
         rowTime1 = rowTime1.trim();
         ArrayList<Integer> tempList = new ArrayList<>(); // [00:00-00:00]
         String[] twoTemps = rowTime1.split("-");
-        String[] timeOne = twoTemps[0].toString().split(":");
-        String[] timeTwo = twoTemps[1].toString().split(":");
+        String[] timeOne = twoTemps[0].split(":");
+        String[] timeTwo = twoTemps[1].split(":");
 
         tempList.add(Integer.parseInt(timeOne[0].trim()));
         tempList.add(Integer.parseInt(timeOne[1].trim()));
@@ -33,30 +33,24 @@ public class TableHelper {
 
         return tempList;
     }
+
     /**
-     * Checks if Current time is in the open -time-range
-     *
-     * @param tempOpenHour1
-     * @param tempOpenMinute1
-     * @param tempCloseHour1
-     * @param tempCloseMinute1
-     * @param currentHour
-     * @param currentMinute
-     * @return
+     *Checks if Current time is in the open -time-range
+     * @param openHour today open hour from choosed restaurant
+     * @param openMinute today open minute from choosed restaurant
+     * @param closeHour today close hour from choosed restaurant
+     * @param closeMinute [Could be used in the future when minute != 00 ] today close minute from choosed restaurant
+     * @param currentHour current hour
+     * @param currentMinute current minute
+     * @return open or closed
      */
-    public boolean isOpen(int tempOpenHour1, int tempOpenMinute1, int tempCloseHour1, int tempCloseMinute1, int currentHour, int currentMinute) {
+    public boolean isOpen(int openHour, int openMinute, int closeHour, int closeMinute, int currentHour, int currentMinute) {
 
-        if (currentHour == tempOpenHour1) {
-            if (currentMinute >= tempOpenMinute1) {
-                return true;
-            } else {
-                return false;
-            }
+        if (currentHour == openHour) {
+            return currentMinute >= openMinute;
 
-        } else if (currentHour > tempOpenHour1 && currentHour <= tempCloseHour1) {
-            return true;
-        } else {
-            return false;
+        } else  {
+            return currentHour > openHour && currentHour <= closeHour;
         }
     }
 }

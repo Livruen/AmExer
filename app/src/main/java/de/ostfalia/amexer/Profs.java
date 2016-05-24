@@ -1,5 +1,4 @@
 package de.ostfalia.amexer;
-
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,7 +8,7 @@ import android.util.Log;
  * TODO : class needs to be implement
  *
  *
- * @autor Natasza Szczypien
+ * @author Natasza Szczypien
  */
 public class Profs extends AppCompatActivity {
 

@@ -35,7 +35,7 @@ public class MapExer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Gets the csv
         try {
-            inputStream = this.getAssets().open("campus_exer_data.csv");
+            inputStream = this.getAssets().open(getString(R.string.campus_exer_data_csv));
         } catch (IOException e) {
             e.printStackTrace();
         }

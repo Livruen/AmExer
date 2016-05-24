@@ -35,6 +35,15 @@
     <string name="clubs">Clubs</string>
     <string name="restaurants">Restaurants</string>
 
+    <string name="barsLink">https://www.google.de/maps/search/Wolfenbuettel+Bars</string>
+    <string name="clubsLink">https://www.google.de/maps/search/Wolfenbuettel+Clubs</string>
+    <string name="restaurantsLink">https://www.google.de/maps/search/Wolfenbuettel+Restaurants</string>
+
+    <!--   ......................... CAMPUSES  ......................... -->
+    <string name="amExer">Am Exer</string>
+    <string name="anDerSalzdahlumer">An der Salzdahlumer</string>
+    <string name="campusExer">Campus am Exer</string>
+    <string name="campusSalzdahlumer">Campus Salzdahlumer</string>
 
     <!--   ......................... FOOD ......................... -->
     <!-- Mensa -->
@@ -51,6 +60,18 @@
     <string name="limes_url">http://limes.dragosardo.de</string>
 
 
+    <!--   ......................... HOLIDAYS  ......................... -->
+    <string name="semesterBreak">Vorlesungsfrei</string>
+    <string name="lectureTime">Vorlesungen finden statt</string>
+    <string name="holiday">Feiertag</string>
+    <string name="date">Datum</string>
+    <string name="holidays_data.csv">holidays_data.csv</string>
+
+
+    <!--   ......................... LIBRARY  ......................... -->
+    <string name="library_csv">semester_data.csv</string>
+
+
     <!--   ......................... MAPS ......................... -->
     <string name="exerMap">KarteExer</string>
     <string name="salzdahlumerMap">KarteSalzdahlumer</string>
@@ -58,22 +79,12 @@
     <string name="gebaudeExer">Gebäude am Exer:</string>
     <string name="gebaudeSalzdahlumer">Gebäude an der Salzdahlumer:</string>
 
-
-    <!--   ......................... LIBRARY  ......................... -->
-    <string name="library_csv">semester_data.csv</string>
-
-
-    <!--   ......................... HOLIDAYS  ......................... -->
-    <string name="semesterBreak">Vorlesungsfrei</string>
-    <string name="lectureTime">Vorlesungen finden statt</string>
-    <string name="holiday">Feiertag</string>
-    <string name="date">Datum</string>
+    <string name="campus_exer_data.csv">campus_exer_data.csv</string>
+    <string name="campus_salzdahlumer_data.csv">campus_salzdahlumer_data.csv</string>
 
 
-    <!--   ......................... CAMPUSES  ......................... -->
-    <string name="amExer">Am Exer</string>
-    <string name="anDerSalzdahlumer">An der Salzdahlumer</string>
-    <string name="campusExer">Campus am Exer</string>
-    <string name="campusSalzdahlumer">Campus Salzdahlumer</string>
+    <!--   ......................... SPORTS ......................... -->
+    <string name="sports_data.csv">sports_data.csv</string>
+    <string name="sportsLink">https://www.hochschulsport.ostfalia.de/angebote/aktueller_zeitraum/_</string>
 
 </resources>

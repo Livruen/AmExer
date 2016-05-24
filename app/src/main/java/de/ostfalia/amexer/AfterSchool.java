@@ -20,10 +20,6 @@ public class AfterSchool extends AppCompatActivity {
     private Button btnClubs;
     private Button btnRestaurants;
 
-    private static final String barsLink = "https://www.google.de/maps/search/Wolfenb%C3%BCttel+Bars/@52.1580908,10.5242733,15z/data=!3m1!4b1";
-    private static final String clubsLink = "https://www.google.de/maps/place/Blackout/@52.1580333,10.530936,17z/data=!3m1!4b1!4m2!3m1!1s0x47a55e8f6284b3a3:0xd4afe55a16699651";
-    private static final String restaurantsLink = "https://www.google.de/maps/search/Wolfenb%C3%BCttel+Restaurants/@52.1580494,10.5243431,15z/data=!3m1!4b1";
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -50,9 +46,15 @@ public class AfterSchool extends AppCompatActivity {
     }
 
     /**
-     * Opens Google Maps-App or Google Map in choosen browser with Search-String
+     * Sets the actions to the buttons
+     * By click it opens Google Maps-App or Google Map in choosen browser with Search-String
      */
     private void setActions() {
+
+        final String barsLink = getString(R.string.barsLink);
+        final String clubsLink = getString(R.string.clubsLink);
+        final String restaurantsLink = getString(R.string.restaurantsLink);
+
         btnPubs.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

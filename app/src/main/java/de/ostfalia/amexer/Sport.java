@@ -33,7 +33,7 @@ public class Sport extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         // Gets the csv
         try {
-            inputStream = this.getAssets().open("sports_data.csv");
+            inputStream = this.getAssets().open(getString(R.string.sports_data_csv));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -96,7 +96,7 @@ public class Sport extends AppCompatActivity {
      * @return uri
      */
     private Uri sporttypeToUri(String s) {
-        String webUri = "https://www.hochschulsport.ostfalia.de/angebote/aktueller_zeitraum/_";
+        String webUri = getString(R.string.sportsLink);
         return Uri.parse(webUri + s.replace(" ", "_")
                 .replace("ä", "ae")
                 .replace("ö", "oe")

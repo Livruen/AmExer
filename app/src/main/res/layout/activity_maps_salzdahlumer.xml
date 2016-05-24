@@ -9,7 +9,7 @@
     android:paddingTop="0dp"
     tools:context=".Maps"
     android:id="@+id/bg_map_salzdahlumer"
-    android:background="#ffffff">
+    android:background="@color/white">
 
     <EditText
         android:layout_width="match_parent"

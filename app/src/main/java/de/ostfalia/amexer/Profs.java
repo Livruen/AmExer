@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 /**
  * the class shows an developer image on the actionbar
- * TODO : class needs to be implement
+ * TODO : class needs to be implement in future
  *
  *
  * @author Natasza Szczypien

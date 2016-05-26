@@ -1,4 +1,5 @@
 package de.ostfalia.amexer;
+
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import de.ostfalia.amexer.entries.CSVReader;
+
 /**
  * This class uses a CSV-File 'solferino_limes_data.csv' to get the open and close time from the Mensa.
  * After the Activity starts, the CVS-File will be loaded. The class gets the current
@@ -26,16 +28,9 @@ import de.ostfalia.amexer.entries.CSVReader;
  * The class compares the mensa open and close time with the current time.
  * If current time is in Time-Range the library is "OFFEN" else "GRESCHLOSSEN"
  *
- * @autor Natasza Szczypien
+ * @author Natasza Szczypien
  */
 public class FoodAmExer extends AppCompatActivity {
-
-    /*Constants tells the line index in the CSV */
-    private final int SOLFERINO_OPEN_TIME_CSV = 0;
-    private final int SOLFERINO_CLOSE_TIME_CSV = 1;
-    private final int LIMES_OPEN_TIME_CSV = 2;
-    private final int LIMES_CLOSE_TIME_CSV = 3;
-
 
     private int solferinoOpenHour;
     private int solferinoCloseHour;
@@ -46,7 +41,7 @@ public class FoodAmExer extends AppCompatActivity {
 
     /* Activity Objects */
     private ImageButton solferinoButton;
-    private  EditText solferinoBigText;
+    private EditText solferinoBigText;
     private EditText solferinoSmallText;
     private ImageButton limesButton;
     private EditText limesSmallText;
@@ -57,14 +52,7 @@ public class FoodAmExer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
-        InputStream iS = null;
-        // Reads CSV
-        try {
-            iS = this.getAssets().open(getString(R.string.solferino_limes_csv));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        getOpenHoursFromCSV(iS);
+        getOpenHoursFromCSV();
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_food_am_exer);
@@ -78,7 +66,7 @@ public class FoodAmExer extends AppCompatActivity {
     }
 
     /**
-     *   Puts an Image to the Action Bar
+     * Puts an Image to the Action Bar
      */
     private void setImageActionBar() {
         ActionBar actionBar = getSupportActionBar();
@@ -101,7 +89,7 @@ public class FoodAmExer extends AppCompatActivity {
         int dayOfWeek = c.get(Calendar.DAY_OF_WEEK);
 
 
-        if(dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY){
+        if (dayOfWeek == Calendar.SATURDAY || dayOfWeek == Calendar.SUNDAY) {
 
             solferinoBigText.setText(R.string.wochenende);
             solferinoBigText.setTextColor(Color.BLUE);
@@ -110,11 +98,11 @@ public class FoodAmExer extends AppCompatActivity {
             limesBigText.setTextColor(Color.BLUE);
             limesSmallText.setText(R.string.frei);
 
-        }else {
+        } else {
 
-            int currentHour =  c.get(Calendar.HOUR_OF_DAY);
+            int currentHour = c.get(Calendar.HOUR_OF_DAY);
 
-            if(currentHour >= solferinoOpenHour && currentHour < solferinoCloseHour){
+            if (currentHour >= solferinoOpenHour && currentHour < solferinoCloseHour) {
                 solferinoBigText.setText(R.string.open, TextView.BufferType.EDITABLE);
                 solferinoBigText.setTextColor(Color.GREEN);
                 solferinoSmallText.setText(getString(R.string.offen_bis) + solferinoCloseHour + getString(R.string.zero_minute));
@@ -124,7 +112,7 @@ public class FoodAmExer extends AppCompatActivity {
                 solferinoSmallText.setText(getString(R.string.wir_sehen_uns) + solferinoOpenHour + getString(R.string.zero_minute));
             }
 
-            if(currentHour >= limesOpenHour && currentHour < limesCloseHour){
+            if (currentHour >= limesOpenHour && currentHour < limesCloseHour) {
                 limesBigText.setText(R.string.open, TextView.BufferType.EDITABLE);
                 limesBigText.setTextColor(Color.GREEN);
                 limesSmallText.setText(getString(R.string.offen_bis) + limesCloseHour + getString(R.string.zero_minute));
@@ -137,7 +125,7 @@ public class FoodAmExer extends AppCompatActivity {
     }
 
     /**
-     *  Initialize Activity Objects
+     * Initialize Activity Objects
      */
     private void initActivityObjects() {
         solferinoBigText = (EditText) findViewById(R.id.solferino_text);
@@ -150,14 +138,14 @@ public class FoodAmExer extends AppCompatActivity {
     }
 
     /**
-     *  When the Image will be clicked, than a Browser with the Restaurant menu will be openned.
+     * When the Image will be clicked, than a Browser with the Restaurant menu will be openned.
      */
     private void setButtonAction() {
 
         solferinoButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //die url nicht als string speichern!
+                //don't export this url!
                 Uri uri = Uri.parse("http://www.kv.drk-kv-wf.de/fileadmin/user_upload/aktuelles/speisepl%C3%A4ne/menu-solferino.pdf");
                 Intent intent = new Intent(Intent.ACTION_VIEW, uri);
                 startActivity(intent);
@@ -177,14 +165,29 @@ public class FoodAmExer extends AppCompatActivity {
     /**
      * Gets the openning and closing times from a CSV File and assings it to
      * private variables.
-     * @param iS
+     *
      */
-    private void getOpenHoursFromCSV(InputStream iS) {
+    private void getOpenHoursFromCSV() {
+
+        /*Constants tells what the line index in the CSV means*/
+        int SOLFERINO_OPEN_TIME_CSV = 0;
+        int SOLFERINO_CLOSE_TIME_CSV = 1;
+        int LIMES_OPEN_TIME_CSV = 2;
+        int LIMES_CLOSE_TIME_CSV = 3;
+
+        InputStream iS = null;
+        // Reads CSV
+        try {
+            iS = this.getAssets().open(getString(R.string.solferino_limes_csv));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         ArrayList<String> hoursInString = new ArrayList<>(new CSVReader(iS).getData());
 
         solferinoOpenHour = Integer.parseInt(hoursInString.get(SOLFERINO_OPEN_TIME_CSV));
         solferinoCloseHour = Integer.parseInt(hoursInString.get(SOLFERINO_CLOSE_TIME_CSV));
+
         limesOpenHour = Integer.parseInt(hoursInString.get(LIMES_OPEN_TIME_CSV));
         limesCloseHour = Integer.parseInt(hoursInString.get(LIMES_CLOSE_TIME_CSV));
     }

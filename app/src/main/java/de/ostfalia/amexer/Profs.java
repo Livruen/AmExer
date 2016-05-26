@@ -1,14 +1,15 @@
 package de.ostfalia.amexer;
+
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 /**
  * the class shows an developer image on the actionbar
- * TODO : class needs to be implement in future
+ * TODO : class needs to be implement
  *
  *
- * @author Natasza Szczypien
+ * @autor Natasza Szczypien
  */
 public class Profs extends AppCompatActivity {
 
